@@ -23,7 +23,7 @@ namespace Task_1._1._1
                 }
                 catch
                 {
-                    Console.WriteLine("All or One of the sides is equal to zero");
+                    Console.WriteLine("One of the sides is equal to zero");
                 }
             }
 
