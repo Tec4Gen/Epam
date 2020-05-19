@@ -1,0 +1,7 @@
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.csprojAssemblyReference.cache
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.csproj.CoreCompileInputs.cache
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\bin\Debug\Task_1.1.1.exe.config
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\bin\Debug\Task_1.1.1.exe
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\bin\Debug\Task_1.1.1.pdb
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.exe
+C:\Users\Neo\Desktop\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.pdb

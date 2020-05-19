@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Neo\\source\\repos\\Epam\\Epam\\Epam.csproj": {}
+    "C:\\Users\\Neo\\Desktop\\Epam\\Epam\\Epam.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Neo\\source\\repos\\Epam\\Epam\\Epam.csproj": {
+    "C:\\Users\\Neo\\Desktop\\Epam\\Epam\\Epam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Neo\\source\\repos\\Epam\\Epam\\Epam.csproj",
+        "projectUniqueName": "C:\\Users\\Neo\\Desktop\\Epam\\Epam\\Epam.csproj",
         "projectName": "Epam",
-        "projectPath": "C:\\Users\\Neo\\source\\repos\\Epam\\Epam\\Epam.csproj",
+        "projectPath": "C:\\Users\\Neo\\Desktop\\Epam\\Epam\\Epam.csproj",
         "packagesPath": "C:\\Users\\Neo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Neo\\source\\repos\\Epam\\Epam\\obj\\",
+        "outputPath": "C:\\Users\\Neo\\Desktop\\Epam\\Epam\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,16 +42,23 @@
         "netcoreapp2.1": {
           "dependencies": {
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

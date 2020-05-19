@@ -1,0 +1,12 @@
+C:\Users\Neo\Desktop\Epam\Epam\bin\Debug\netcoreapp2.1\EpamTestTask.deps.json
+C:\Users\Neo\Desktop\Epam\Epam\bin\Debug\netcoreapp2.1\EpamTestTask.runtimeconfig.json
+C:\Users\Neo\Desktop\Epam\Epam\bin\Debug\netcoreapp2.1\EpamTestTask.runtimeconfig.dev.json
+C:\Users\Neo\Desktop\Epam\Epam\bin\Debug\netcoreapp2.1\EpamTestTask.dll
+C:\Users\Neo\Desktop\Epam\Epam\bin\Debug\netcoreapp2.1\EpamTestTask.pdb
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.csprojAssemblyReference.cache
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.csproj.CoreCompileInputs.cache
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.AssemblyInfoInputs.cache
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.AssemblyInfo.cs
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.dll
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.pdb
+C:\Users\Neo\Desktop\Epam\Epam\obj\Debug\netcoreapp2.1\EpamTestTask.genruntimeconfig.cache
