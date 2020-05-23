@@ -11,13 +11,13 @@ namespace Task_1._1._1
         public ulong SideA { get; private set; }
         public ulong SideB { get; private set; }
 
-        public AreaRectangle(ulong sideA, ulong sideb)
+        public AreaRectangle(ulong sidea, ulong sideb)
         {
-            if (sideA == 0 || sideb == 0) 
+            if (sidea == 0 || sideb == 0) 
             {
                 throw new Exception();
             }
-            SideA = sideA;
+            SideA = sidea;
             SideB = sideb;
         }
 

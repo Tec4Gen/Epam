@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B948F16-3367-4897-9ECE-9EC414AAF31D}</ProjectGuid>
+    <ProjectGuid>{B7071441-051E-418A-A247-3DA5D379F8F9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task_1._1._5</RootNamespace>
-    <AssemblyName>Task_1.1.5</AssemblyName>
+    <RootNamespace>Task_1._1._6</RootNamespace>
+    <AssemblyName>Task_1.1.6</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FontStyle.cs" />
     <Compile Include="StartPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
