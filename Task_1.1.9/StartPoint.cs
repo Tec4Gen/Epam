@@ -2,7 +2,7 @@
 
 namespace Task_1._1._9
 {
-    class Program
+    class StartPoint
     {
         #region Main
         static void Main(string[] args)
