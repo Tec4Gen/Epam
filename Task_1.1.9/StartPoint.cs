@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Task_1._1._7
+namespace Task_1._1._9
 {
-    class StartPoint
+    class Program
     {
+        #region Main
         static void Main(string[] args)
         {
             int[] Array;
@@ -18,11 +15,11 @@ namespace Task_1._1._7
             if (uint.TryParse(Console.ReadLine(), out var Size))
             {
                 Array = new int[Size];
-                CreateArray(Array);
-                SortAndFindMinMax(Array, out var Min, out var Max);
+                CreateArray(Array);   
                 Show(Array);
+                var Sum = NonNegativeSum(Array);
 
-                Console.WriteLine($"min: {Min} max: {Max}");
+                Console.WriteLine($"Sum NonNegative: {Sum}");
             }
             else
             {
@@ -31,23 +28,21 @@ namespace Task_1._1._7
 
             Console.ReadLine();
         }
-        static void SortAndFindMinMax(int[] array,out int min,out int max)
-        {
-            SortInsertion(array);
+        #endregion
 
-            min = array[0];
-            max = array[array.Length - 1];
-        }
-
+        #region CreateArray
         static void CreateArray(int[] array)
         {
             Random rnd = new Random();
 
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = rnd.Next(-100, 101); ;
+                array[i] = rnd.Next(-100, 100); ;
             }
         }
+        #endregion
+
+        #region Show
         static void Show(int[] array)
         {
             foreach (var item in array)
@@ -56,22 +51,23 @@ namespace Task_1._1._7
             }
             Console.WriteLine();
         }
-        static public void SortInsertion(int[] MyArray)
+        #endregion
+
+        #region NonNegativeSum
+        static public int NonNegativeSum(int[] MyArray)
         {
-            int Current;
-            int j;
+            int sum = 0;
             for (int i = 1; i < MyArray.Length; i++)
             {
-                Current = MyArray[i];
-                j = i;
-
-                while (j > 0 && Current < MyArray[j - 1])
+                if (MyArray[i] > 0)
                 {
-                    MyArray[j] = MyArray[j - 1];
-                    j--;
+                    sum += MyArray[i];
+
                 }
-                MyArray[j] = Current;
+
             }
+            return sum;
         }
+        #endregion
     }
 }

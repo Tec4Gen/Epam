@@ -1,0 +1,6 @@
+C:\Users\Neo\Desktop\Epam\Task_1.1.9\bin\Debug\Task_1.1.9.exe.config
+C:\Users\Neo\Desktop\Epam\Task_1.1.9\bin\Debug\Task_1.1.9.exe
+C:\Users\Neo\Desktop\Epam\Task_1.1.9\bin\Debug\Task_1.1.9.pdb
+C:\Users\Neo\Desktop\Epam\Task_1.1.9\obj\Debug\Task_1.1.9.csproj.CoreCompileInputs.cache
+C:\Users\Neo\Desktop\Epam\Task_1.1.9\obj\Debug\Task_1.1.9.exe
+C:\Users\Neo\Desktop\Epam\Task_1.1.9\obj\Debug\Task_1.1.9.pdb
