@@ -47,7 +47,6 @@ namespace Task_1._1._6
         }
         static Style ChooseFont(byte id, Style font)
         {
-
             switch (id)
             {
                 case 1:
