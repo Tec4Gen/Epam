@@ -4,3 +4,4 @@ C:\Users\Neo\Desktop\Epam\Task_1.2.3\bin\Debug\Task_1.2.3.pdb
 C:\Users\Neo\Desktop\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.exe
 C:\Users\Neo\Desktop\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.pdb
+C:\Users\Neo\Desktop\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.csprojAssemblyReference.cache
