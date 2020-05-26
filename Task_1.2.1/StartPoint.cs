@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Task_1._2._1
 {
     //Дробное число 
-    class Program
+    class StartPoint
     {
         #region Main
         static void Main(string[] args)
@@ -16,10 +16,10 @@ namespace Task_1._2._1
             double Middle = 0;
             Console.Write("Enter string: ");
 
-            string str = Console.ReadLine();
+            string Str = Console.ReadLine();
 
-            var ArrayWord = str.Split(new char[] { ' ', '.', '!', '?', ':', ';' }, StringSplitOptions.RemoveEmptyEntries);
-
+            var ArrayWord = Str.Split(new char[] { ' ',',', '.', '!', '?', ':', ';' }, StringSplitOptions.RemoveEmptyEntries);
+           
             foreach (var item in ArrayWord)
             {
                 Middle += item.Length;
