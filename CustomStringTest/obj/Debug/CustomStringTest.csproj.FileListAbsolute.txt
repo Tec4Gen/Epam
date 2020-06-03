@@ -1,0 +1,10 @@
+C:\Users\Neo\Desktop\Epam\CustomStringTest\bin\Debug\CustomStringTest.exe.config
+C:\Users\Neo\Desktop\Epam\CustomStringTest\bin\Debug\CustomStringTest.exe
+C:\Users\Neo\Desktop\Epam\CustomStringTest\bin\Debug\CustomStringTest.pdb
+C:\Users\Neo\Desktop\Epam\CustomStringTest\bin\Debug\CustomString.dll
+C:\Users\Neo\Desktop\Epam\CustomStringTest\bin\Debug\CustomString.pdb
+C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.csprojAssemblyReference.cache
+C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.csproj.CoreCompileInputs.cache
+C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.csproj.CopyComplete
+C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.exe
+C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.pdb
