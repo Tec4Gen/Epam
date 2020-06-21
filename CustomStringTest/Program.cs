@@ -1,15 +1,21 @@
 ﻿using CustomString;
 using System;
+using System.Linq;
+
 namespace CustomStringTest
 {
     class Program
     {
         static void Main(string[] args)
         {
-            StringUp str = new StringUp("Тест");
-            StringUp str1 = null;
-            str.Equals(str1);
-            Console.WriteLine();
+            StringUp str = new StringUp("abaaba");
+            var a = StringUp.ZFunction("abaaba");
+            foreach (var item in a)
+            {
+                Console.Write(item);
+            }
+
+            var a = StringUp();
 
             Console.WriteLine();
             Console.ReadLine();

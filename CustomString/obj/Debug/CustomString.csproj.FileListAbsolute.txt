@@ -4,3 +4,9 @@ C:\Users\Neo\Desktop\Epam\CustomString\obj\Debug\CustomString.csprojAssemblyRefe
 C:\Users\Neo\Desktop\Epam\CustomString\obj\Debug\CustomString.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\Epam\CustomString\obj\Debug\CustomString.dll
 C:\Users\Neo\Desktop\Epam\CustomString\obj\Debug\CustomString.pdb
+D:\MyGit\CustomString\bin\Debug\CustomString.dll
+D:\MyGit\CustomString\bin\Debug\CustomString.pdb
+D:\MyGit\CustomString\obj\Debug\CustomString.csprojAssemblyReference.cache
+D:\MyGit\CustomString\obj\Debug\CustomString.csproj.CoreCompileInputs.cache
+D:\MyGit\CustomString\obj\Debug\CustomString.dll
+D:\MyGit\CustomString\obj\Debug\CustomString.pdb

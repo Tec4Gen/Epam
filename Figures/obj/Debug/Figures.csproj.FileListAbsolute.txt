@@ -1,0 +1,2 @@
+D:\MyGit\Figures\obj\Debug\Figures.csprojAssemblyReference.cache
+D:\MyGit\Figures\obj\Debug\Figures.csproj.CoreCompileInputs.cache

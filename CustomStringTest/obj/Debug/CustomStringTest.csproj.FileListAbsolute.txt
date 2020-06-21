@@ -8,3 +8,13 @@ C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.csproj.Cor
 C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.csproj.CopyComplete
 C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.exe
 C:\Users\Neo\Desktop\Epam\CustomStringTest\obj\Debug\CustomStringTest.pdb
+D:\MyGit\CustomStringTest\bin\Debug\CustomStringTest.exe.config
+D:\MyGit\CustomStringTest\bin\Debug\CustomStringTest.exe
+D:\MyGit\CustomStringTest\bin\Debug\CustomStringTest.pdb
+D:\MyGit\CustomStringTest\bin\Debug\CustomString.dll
+D:\MyGit\CustomStringTest\bin\Debug\CustomString.pdb
+D:\MyGit\CustomStringTest\obj\Debug\CustomStringTest.csprojAssemblyReference.cache
+D:\MyGit\CustomStringTest\obj\Debug\CustomStringTest.csproj.CoreCompileInputs.cache
+D:\MyGit\CustomStringTest\obj\Debug\CustomStringTest.csproj.CopyComplete
+D:\MyGit\CustomStringTest\obj\Debug\CustomStringTest.exe
+D:\MyGit\CustomStringTest\obj\Debug\CustomStringTest.pdb
