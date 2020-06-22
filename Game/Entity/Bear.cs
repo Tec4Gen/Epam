@@ -6,7 +6,7 @@ namespace Game.Entity
     {
         public void Move()
         {
-
+            throw new System.NotImplementedException();
         }
     }
 }

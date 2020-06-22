@@ -20,11 +20,11 @@ namespace Figures.Figure
         {
             if (vertexlist == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("Message");
             }
             if (vertexlist.Count() > 3)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Message");
             }
             //vertexlist.Count() == 2
             else

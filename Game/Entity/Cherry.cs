@@ -6,7 +6,7 @@ namespace Game.Entity
     {
         public void UpCharacteristic()
         {
-
+            throw new System.NotImplementedException();
         }
     }
 }
