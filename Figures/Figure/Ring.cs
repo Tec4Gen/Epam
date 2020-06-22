@@ -29,7 +29,10 @@ namespace Figures
                 return Circumference + InternalCircumference;
             }
         }
+        public Ring()
+        {
 
+        }
         public Ring(double x, double y,double radius, double internalradius ) : base(x,y, radius)
         {
             InternalRadius = internalradius;

@@ -6,6 +6,10 @@ namespace Figures.Figure
 {
     public class Triangle : AbstractTriangle
     {
+        public Triangle()
+        {
+
+        }
         public Triangle(List<List<float>> vertexlist) : base(vertexlist)
         {
         }

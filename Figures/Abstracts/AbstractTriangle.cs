@@ -20,7 +20,11 @@ namespace Figures.Abstracts
         public double Height { get { return (SideA + SideB + SideC) / 2; } }
 
         public abstract double Area { get; }
-       
+
+        public AbstractTriangle()
+        {
+
+        }
         public AbstractTriangle(List<List<float>> vertexlist)
         {
             if (vertexlist == null)
@@ -31,7 +35,8 @@ namespace Figures.Abstracts
             {
                 throw new ArgumentException();
             }
-            if (vertexlist.Count() == 3)
+            //vertexlist.Count() == 3
+            else
             {
                 PointOne = new PointF(vertexlist[0][0], vertexlist[0][1]);
                 PointTwo = new PointF(vertexlist[1][0], vertexlist[1][1]);

@@ -24,7 +24,10 @@ namespace Figures.Abstracts
 
         //private int _area;
         public abstract double Area { get; }
+        public AbstractCircle()
+        {
 
+        }
         public AbstractCircle(double x, double y,double radius)
         {
             XPosition = x;

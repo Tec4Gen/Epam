@@ -15,7 +15,7 @@ namespace CustomStringTest
                 Console.Write(item);
             }
 
-            var a = StringUp();
+            
 
             Console.WriteLine();
             Console.ReadLine();

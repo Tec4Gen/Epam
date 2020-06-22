@@ -20,6 +20,10 @@ namespace Figures.Figure
 
         public override double Area => throw new NotImplementedException();
 
+        public Parallelogram()
+        {
+
+        }
         public Parallelogram(List<List<float>> vertexlist) : base(vertexlist)
         {
 

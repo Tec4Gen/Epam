@@ -12,7 +12,10 @@ namespace Figures
                 return Math.PI * (Radius * Radius);
             }
         }
+        public Circle()
+        {
 
+        }
         public Circle(double x, double y, double radius) : base(x, y, radius)
         {
         }
