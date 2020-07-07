@@ -1,0 +1,10 @@
+D:\MyGit\Epam\TestMyCouting\bin\Debug\TestMyCouting.exe.config
+D:\MyGit\Epam\TestMyCouting\bin\Debug\TestMyCouting.exe
+D:\MyGit\Epam\TestMyCouting\bin\Debug\TestMyCouting.pdb
+D:\MyGit\Epam\TestMyCouting\bin\Debug\ProgramDieOrDie.dll
+D:\MyGit\Epam\TestMyCouting\bin\Debug\ProgramDieOrDie.pdb
+D:\MyGit\Epam\TestMyCouting\obj\Debug\TestMyCouting.csprojAssemblyReference.cache
+D:\MyGit\Epam\TestMyCouting\obj\Debug\TestMyCouting.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\TestMyCouting\obj\Debug\TestMyCouting.csproj.CopyComplete
+D:\MyGit\Epam\TestMyCouting\obj\Debug\TestMyCouting.exe
+D:\MyGit\Epam\TestMyCouting\obj\Debug\TestMyCouting.pdb
