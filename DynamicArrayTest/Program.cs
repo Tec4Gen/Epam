@@ -8,17 +8,23 @@ namespace DynamicArrayTest
     {
         static void Main(string[] args)
         {
-            List<int> item = new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            CycledDynamicArray<int> item = new CycledDynamicArray<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
+            DynamicArray<int> item2 = new DynamicArray<int>() { 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10 };
             DynamicArray<int> a = new DynamicArray<int> (20);
             a.Add(1);
             a.Add(2);
             a.Add(3);
-            a.AddRange(item);
+            a.AddRange(item2);
+            item2.Capacity = 100;
+
+            var g = item2.ToArray();
             //Console.WriteLine(a.IsInsert(3, 99999));
             //Console.WriteLine(a.IsInsert(1, 10000));
-           // c = (DynamicArray <int>)a.Clone();
+            // c = (DynamicArray <int>)a.Clone();
 
-            foreach (var item1 in a)
+            Console.WriteLine(item2[-21]);
+            foreach (var item1 in item)
             {
 
                 Console.Write($"{item1} ");

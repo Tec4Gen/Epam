@@ -10,9 +10,9 @@ namespace MyDynamicArray
         #region Filds and Properties
         protected T[] _items;
 
-        private int _size;
+        protected int _size;
 
-        private int _position = -1;
+        protected int _position = -1;
 
         public int Count
         {
@@ -30,8 +30,15 @@ namespace MyDynamicArray
             }
             set
             {
-                if (value < _size)
-                    throw new ArgumentException("Capacity cannot be less length");
+                if (value < _size) 
+                {
+                    T[] temp = new T[value];
+                    Array.Copy(_items, 0, temp, 0, value);
+                    _items = temp;
+                    _size = value;
+                }
+                   
+
 
                 if (value == _items.Length)
                 {
@@ -42,7 +49,7 @@ namespace MyDynamicArray
                 {
                     T[] temp = new T[value];
                     if (_size > 0)
-                        Array.Copy(_items, temp, 0);
+                        Array.Copy(_items, 0, temp, 0, _size);
 
                     _items = temp;
                 }
@@ -61,9 +68,13 @@ namespace MyDynamicArray
         {
             get
             {
-                if (index < 0 || index > _size - 1)
+                if (Math.Abs(index) > _size - 1)
                 {
                     throw new ArgumentOutOfRangeException();
+                }
+                else if (index < 0) 
+                {
+                    return _items[_size - Math.Abs(index)];
                 }
                 else
                 {
@@ -300,6 +311,15 @@ namespace MyDynamicArray
                 _size--;
             }
         }
+
+        public T[] ToArray() 
+        {
+            T[] temp = new T[_size];
+
+            Array.Copy(_items, 0, temp, 0, _size);
+
+            return temp;
+        }
         #endregion
 
         #region Enumerator
@@ -319,7 +339,7 @@ namespace MyDynamicArray
                 return Current;
             }
         }
-        public bool MoveNext()
+        public virtual bool MoveNext()
         {
             if (_position < _size -1)
             {
@@ -338,7 +358,7 @@ namespace MyDynamicArray
         {
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public virtual IEnumerator<T> GetEnumerator()
         {
             return this;
         }
