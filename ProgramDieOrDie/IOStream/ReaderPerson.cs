@@ -6,9 +6,10 @@ namespace ProgramDieOrDie.IOStream
 {
     public static class ReaderPerson
     {
-        public static List<Person> Read(string path) 
+        public static List<Person> Read(string path)
         {
-
+            try
+            {
                 using (StreamReader file = new StreamReader(path))
                 {
                     List<Person> listPerson = new List<Person>();
@@ -30,11 +31,13 @@ namespace ProgramDieOrDie.IOStream
 
                     return listPerson;
                 }
-            
- 
+
+            }
+            catch (Exception)
+            {
                 Console.WriteLine("File not found or path incorrect format");
                 return null;
-  
+            }
         }
     }
 }
