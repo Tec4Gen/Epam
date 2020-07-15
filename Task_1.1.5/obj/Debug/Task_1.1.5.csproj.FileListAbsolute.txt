@@ -4,3 +4,10 @@ C:\Users\Neo\Desktop\Epam\Task_1.1.5\bin\Debug\Task_1.1.5.pdb
 C:\Users\Neo\Desktop\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.exe
 C:\Users\Neo\Desktop\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.pdb
+D:\MyGit\Epam\Task_1.1.5\bin\Debug\Task_1.1.5.exe.config
+D:\MyGit\Epam\Task_1.1.5\bin\Debug\Task_1.1.5.exe
+D:\MyGit\Epam\Task_1.1.5\bin\Debug\Task_1.1.5.pdb
+D:\MyGit\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.csprojAssemblyReference.cache
+D:\MyGit\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.exe
+D:\MyGit\Epam\Task_1.1.5\obj\Debug\Task_1.1.5.pdb

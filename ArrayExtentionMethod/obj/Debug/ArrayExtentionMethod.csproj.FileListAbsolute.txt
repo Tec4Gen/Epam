@@ -1,0 +1,5 @@
+D:\MyGit\Epam\ArrayExtentionMethod\obj\Debug\ArrayExtentionMethod.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\ArrayExtentionMethod\bin\Debug\ArrayExtentionMethod.dll
+D:\MyGit\Epam\ArrayExtentionMethod\bin\Debug\ArrayExtentionMethod.pdb
+D:\MyGit\Epam\ArrayExtentionMethod\obj\Debug\ArrayExtentionMethod.dll
+D:\MyGit\Epam\ArrayExtentionMethod\obj\Debug\ArrayExtentionMethod.pdb

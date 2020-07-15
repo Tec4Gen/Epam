@@ -4,3 +4,9 @@ D:\MyGit\Figures\bin\Debug\Figures.dll
 D:\MyGit\Figures\bin\Debug\Figures.pdb
 D:\MyGit\Figures\obj\Debug\Figures.dll
 D:\MyGit\Figures\obj\Debug\Figures.pdb
+D:\MyGit\Epam\Figures\bin\Debug\Figures.dll
+D:\MyGit\Epam\Figures\bin\Debug\Figures.pdb
+D:\MyGit\Epam\Figures\obj\Debug\Figures.csprojAssemblyReference.cache
+D:\MyGit\Epam\Figures\obj\Debug\Figures.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Figures\obj\Debug\Figures.dll
+D:\MyGit\Epam\Figures\obj\Debug\Figures.pdb

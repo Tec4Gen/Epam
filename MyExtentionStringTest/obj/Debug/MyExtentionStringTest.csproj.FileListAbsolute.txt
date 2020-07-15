@@ -1,0 +1,10 @@
+D:\MyGit\Epam\MyExtentionStringTest\bin\Debug\MyExtentionStringTest.exe.config
+D:\MyGit\Epam\MyExtentionStringTest\bin\Debug\MyExtentionStringTest.exe
+D:\MyGit\Epam\MyExtentionStringTest\bin\Debug\MyExtentionStringTest.pdb
+D:\MyGit\Epam\MyExtentionStringTest\bin\Debug\MyExtentionString.dll
+D:\MyGit\Epam\MyExtentionStringTest\bin\Debug\MyExtentionString.pdb
+D:\MyGit\Epam\MyExtentionStringTest\obj\Debug\MyExtentionStringTest.csprojAssemblyReference.cache
+D:\MyGit\Epam\MyExtentionStringTest\obj\Debug\MyExtentionStringTest.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\MyExtentionStringTest\obj\Debug\MyExtentionStringTest.csproj.CopyComplete
+D:\MyGit\Epam\MyExtentionStringTest\obj\Debug\MyExtentionStringTest.exe
+D:\MyGit\Epam\MyExtentionStringTest\obj\Debug\MyExtentionStringTest.pdb

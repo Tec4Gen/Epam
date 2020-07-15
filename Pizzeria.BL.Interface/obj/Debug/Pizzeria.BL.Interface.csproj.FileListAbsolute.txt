@@ -1,0 +1,11 @@
+D:\MyGit\Epam\Pizzeria.BL.Interface\obj\Debug\Pizzeria.BL.Interface.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Pizzeria.BL.Interface\bin\Debug\Pizzeria.BL.Interface.dll
+D:\MyGit\Epam\Pizzeria.BL.Interface\bin\Debug\Pizzeria.BL.Interface.pdb
+D:\MyGit\Epam\Pizzeria.BL.Interface\bin\Debug\Pizzeria.Entities.dll
+D:\MyGit\Epam\Pizzeria.BL.Interface\bin\Debug\Pizzeria.Product.dll
+D:\MyGit\Epam\Pizzeria.BL.Interface\bin\Debug\Pizzeria.Entities.pdb
+D:\MyGit\Epam\Pizzeria.BL.Interface\bin\Debug\Pizzeria.Product.pdb
+D:\MyGit\Epam\Pizzeria.BL.Interface\obj\Debug\Pizzeria.BL.Interface.csprojAssemblyReference.cache
+D:\MyGit\Epam\Pizzeria.BL.Interface\obj\Debug\Pizzeria.BL.Interface.csproj.CopyComplete
+D:\MyGit\Epam\Pizzeria.BL.Interface\obj\Debug\Pizzeria.BL.Interface.dll
+D:\MyGit\Epam\Pizzeria.BL.Interface\obj\Debug\Pizzeria.BL.Interface.pdb
