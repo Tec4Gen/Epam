@@ -1,0 +1,13 @@
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.Watcher.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.Watcher.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.Watcher.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.Watcher.Interface.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\obj\Debug\Backupper.BLL.Watcher.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.BLL.Watcher\obj\Debug\Backupper.BLL.Watcher.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.BLL.Watcher\obj\Debug\Backupper.BLL.Watcher.csproj.CopyComplete
+D:\MyGit\Epam\Backupper.BLL.Watcher\obj\Debug\Backupper.BLL.Watcher.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\obj\Debug\Backupper.BLL.Watcher.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\BackUpper.BLL.WatcherEvent.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\BackUpper.BLL.WatcherEvent.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.WatcherEvent.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.WatcherEvent.Interface.pdb

@@ -1,0 +1,6 @@
+D:\MyGit\Epam\Backupper.BLL.Interface\bin\Debug\Backupper.BLL.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.Interface\bin\Debug\Backupper.BLL.Interface.pdb
+D:\MyGit\Epam\Backupper.BLL.Interface\obj\Debug\Backupper.BLL.Interface.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.BLL.Interface\obj\Debug\Backupper.BLL.Interface.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.BLL.Interface\obj\Debug\Backupper.BLL.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.Interface\obj\Debug\Backupper.BLL.Interface.pdb

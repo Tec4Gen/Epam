@@ -1,0 +1,9 @@
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\bin\Release\Backupper.BLL.WatcherEvent.dll
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\bin\Release\Backupper.BLL.WatcherEvent.pdb
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\bin\Release\Backupper.BLL.WatcherEvent.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\bin\Release\Backupper.BLL.WatcherEvent.Interface.pdb
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\obj\Release\Backupper.BLL.WatcherEvent.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\obj\Release\Backupper.BLL.WatcherEvent.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\obj\Release\Backupper.BLL.WatcherEvent.csproj.CopyComplete
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\obj\Release\Backupper.BLL.WatcherEvent.dll
+D:\MyGit\Epam\Backupper.BLL.WatcherEvent\obj\Release\Backupper.BLL.WatcherEvent.pdb
