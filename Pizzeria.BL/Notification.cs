@@ -14,6 +14,11 @@ namespace Pizzeria.BL
             pizzeriaLogic.OnOrder += GetReady;
         }
 
+        static public void UnSubscribe(PizzeriaLogic pizzeriaLogic)
+        {
+            pizzeriaLogic.OnOrder -= GetReady;
+        }
+
 
         static private void СompletionMessage()
         {
@@ -32,7 +37,7 @@ namespace Pizzeria.BL
         static private void GetReady()
         {
             Console.WriteLine($"{new String('=', 20)} {Environment.NewLine}Order get ready: {_order.Ticket.IdTicket}:");
-            Thread.Sleep(2000);
+        
             СompletionMessage();
         }
     }

@@ -1,40 +1,55 @@
 ﻿using Backupper.BLL.Watcher.Interface;
 using Backupper.BLL.WatcherEvent;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Threading;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace Backupper.BLL.Watcher
 {
-    sealed class WatcherLogic : IWatcherLogic
+    public class WatcherLogic : IWatcherLogic
     {
-        private string _watchedFolder { get; set; }
+        #region Fields
+        private static DirectoryInfo _rootFolder { get; set; }
+        private static List<string> _logList { get; set; }
+        public static string _logMessage { get; set; }
 
-        public bool Flag { get; set; } = true;
-        public HandlerEvent EventUI { get; set; }
-        public WatcherLogic(string path, HandlerEvent handler)
+        private HandlerEvent _eventUI { get; set; }
+        private bool Flag { get; set; } = true;
+        #endregion
+
+        #region constructor
+        public WatcherLogic(DirectoryInfo path, HandlerEvent handler)
         {
             if (path == null)
                 // TODO:
                 throw new ArgumentNullException();
-            EventUI = handler;
-            _watchedFolder = path;
+            _eventUI = handler;
+            _rootFolder = path;
+
+            _logList = new List<string>();
         }
 
-        public void Run()
+        #endregion
+
+        #region main Non-Static Methods
+        public async void Run()
         {
-            EventUI.OnEvent += Cancel;
-            Watcher();
+            _eventUI.OnEvent += Cancel;
+            await Task.Run(() => Watcher());
         }
+
         private void Cancel()
-        {   
+        {
             Flag = false;
-            EventUI.OnEvent -= Cancel;
+            _eventUI.OnEvent -= Cancel;
         }
 
         private void Watcher()
         {
-            using (FileSystemWatcher watcher = new FileSystemWatcher(_watchedFolder))
+
+            using (FileSystemWatcher watcher = new FileSystemWatcher(_rootFolder.FullName))
             {
                 watcher.NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite;
 
@@ -42,41 +57,55 @@ namespace Backupper.BLL.Watcher
 
                 watcher.Changed += OnChanged;
                 watcher.Created += OnCreated;
-                watcher.Deleted += OnDelete;
                 watcher.Renamed += OnRenamed;
 
                 watcher.EnableRaisingEvents = true;
                 watcher.IncludeSubdirectories = true;
-
                 Console.WriteLine("Press 'q' to quit the sample.");
 
-                while (Flag)
-                {
+                while (Flag) ;
 
-                }
 
                 Console.WriteLine("Я умер");
             }
         }
 
+        #endregion
 
+        #region Static Methods
+        private static void OnChanged(object source, FileSystemEventArgs e)
+        {
+            _logMessage = PathFormatting(new Uri(e.FullPath), new Uri(_rootFolder.FullName));
 
-        private static void OnChanged(object source, FileSystemEventArgs e) =>
-             // Specify what is done when a file is changed, created, or deleted.
-            Console.WriteLine($"File: {e.FullPath} {e.ChangeType}");
+            _logList.Add(_logMessage);
 
-        private static void OnCreated(object source, FileSystemEventArgs e) =>
-            // Specify what is done when a file is changed, created, or deleted.
-            Console.WriteLine($"File: {e.FullPath} {e.ChangeType}");
+            Console.WriteLine($"File: {_logMessage} => {e.ChangeType}");
 
-        private static void OnDelete(object source, FileSystemEventArgs e) =>
-            // Specify what is done when a file is changed, created, or deleted.
-            Console.WriteLine($"File: {e.FullPath} {e.ChangeType}");
+        }
 
-        private static void OnRenamed(object source, RenamedEventArgs e) =>
-            // Specify what is done when a file is renamed.
-            Console.WriteLine($"File: {e.OldFullPath} renamed to {e.FullPath}");
+        private static void OnCreated(object source, FileSystemEventArgs e)
+        {
+            _logMessage = PathFormatting(new Uri(e.FullPath), new Uri(_rootFolder.FullName));
 
+            _logList.Add(_logMessage);
+
+            Console.WriteLine($"File: {_logMessage} => {e.ChangeType}");
+        }
+
+        private static void OnRenamed(object source, RenamedEventArgs e)
+        {
+            _logMessage = PathFormatting(new Uri(e.FullPath), new Uri(_rootFolder.FullName));
+
+            _logList.Add(_logMessage);
+
+            Console.WriteLine($"File: {_logMessage} => {e.ChangeType}");
+        }
+
+        private static string PathFormatting(Uri fileUri, Uri rootUri)
+        {
+            return Uri.UnescapeDataString(rootUri.MakeRelativeUri(fileUri).ToString());
+        }
+        #endregion
 
     }
 }

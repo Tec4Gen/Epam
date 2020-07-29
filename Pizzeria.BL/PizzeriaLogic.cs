@@ -30,7 +30,7 @@ namespace Pizzeria.BL
                 Notification.Subscribe(Pizzeria.ListOrder[i], this);
                 OrderExecution();
 
-                OnOrder = delegate { };
+                Notification.UnSubscribe(this);
             }
                 
         }

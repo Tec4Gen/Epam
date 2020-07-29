@@ -17,11 +17,12 @@ namespace Backupper.PLConsole
 
                 var a = fileslogic.GetDirectory();
 
-                RunWatcherLogic runner = new RunWatcherLogic(a);
+               
 
                 HandlerEvent MyE = new HandlerEvent();
+                WatcherLogic runner = new WatcherLogic(a, MyE);
 
-                runner.Run(MyE);
+                runner.Run();
 
                 if (int.TryParse(Console.ReadLine(), out int x))
                 {
