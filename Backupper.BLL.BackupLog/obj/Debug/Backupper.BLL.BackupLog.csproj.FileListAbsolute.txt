@@ -1,0 +1,17 @@
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.BLL.BackupLog.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.BLL.BackupLog.pdb
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.Common.TypeMessage.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.ConsoleResponseLogger.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.Common.TypeMessage.pdb
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.ConsoleResponseLogger.pdb
+D:\MyGit\Epam\Backupper.BLL.BackupLog\obj\Debug\Backupper.BLL.BackupLog.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.BLL.BackupLog\obj\Debug\Backupper.BLL.BackupLog.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.BLL.BackupLog\obj\Debug\Backupper.BLL.BackupLog.csproj.CopyComplete
+D:\MyGit\Epam\Backupper.BLL.BackupLog\obj\Debug\Backupper.BLL.BackupLog.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\obj\Debug\Backupper.BLL.BackupLog.pdb
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.BLL.BackupLog.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.BLL.BackupLog.Interface.pdb
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.DAL.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.DAL.Interface.dll
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.DAL.pdb
+D:\MyGit\Epam\Backupper.BLL.BackupLog\bin\Debug\Backupper.DAL.Interface.pdb

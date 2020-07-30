@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Backupper.Entites
+namespace Backupper.Common.Entites
 {
     public class Files
     {

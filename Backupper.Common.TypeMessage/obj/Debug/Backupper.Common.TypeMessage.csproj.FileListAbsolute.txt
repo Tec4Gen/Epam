@@ -1,0 +1,6 @@
+D:\MyGit\Epam\Backupper.Common.TypeMessage\bin\Debug\Backupper.Common.TypeMessage.dll
+D:\MyGit\Epam\Backupper.Common.TypeMessage\bin\Debug\Backupper.Common.TypeMessage.pdb
+D:\MyGit\Epam\Backupper.Common.TypeMessage\obj\Debug\Backupper.Common.TypeMessage.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.Common.TypeMessage\obj\Debug\Backupper.Common.TypeMessage.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.Common.TypeMessage\obj\Debug\Backupper.Common.TypeMessage.dll
+D:\MyGit\Epam\Backupper.Common.TypeMessage\obj\Debug\Backupper.Common.TypeMessage.pdb

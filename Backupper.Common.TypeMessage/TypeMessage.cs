@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Backupper.BLL.BackupLog
+namespace Backupper.Common.TypeMessage
 {
-    public class Class1
+    public enum TypeMessage 
     {
+        None,
+        Error,
+        Successful
     }
 }

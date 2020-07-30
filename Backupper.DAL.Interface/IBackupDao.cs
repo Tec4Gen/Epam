@@ -11,6 +11,8 @@ namespace Backupper.DAL.Interface
     {
         DirectoryInfo GetBbackUpDirectory();
 
-        IEnumerable<FileInfo> GetBackUpFolder();
+        IEnumerable<FileInfo> GetAllArchive();
+
+        void CreateArchive(IEnumerable<string> logList);
     }
 }

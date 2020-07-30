@@ -1,0 +1,9 @@
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\bin\Debug\Backupper.ConsoleResponseLogger.dll
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\bin\Debug\Backupper.ConsoleResponseLogger.pdb
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\bin\Debug\Backupper.Common.TypeMessage.dll
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\bin\Debug\Backupper.Common.TypeMessage.pdb
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\obj\Debug\Backupper.ConsoleResponseLogger.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\obj\Debug\Backupper.ConsoleResponseLogger.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\obj\Debug\Backupper.ConsoleResponseLogger.csproj.CopyComplete
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\obj\Debug\Backupper.ConsoleResponseLogger.dll
+D:\MyGit\Epam\Backupper.ConsoleResponseLogger\obj\Debug\Backupper.ConsoleResponseLogger.pdb

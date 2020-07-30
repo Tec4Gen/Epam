@@ -24,3 +24,7 @@ D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.BLL.pdb
 D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.Common.Dependencies.pdb
 D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.DAL.Interface.pdb
 D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.DAL.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.BLL.BackupLog.Interface.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.BLL.BackupLog.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.BLL.BackupLog.Interface.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Debug\Backupper.BLL.BackupLog.pdb

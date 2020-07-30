@@ -2,7 +2,9 @@
 using Backupper.BLL.Watcher;
 using Backupper.BLL.WatcherEvent;
 using Backupper.Common.Dependencies;
+using BackUpper.BLL.WatcherEvent;
 using System;
+using System.Collections.Generic;
 
 namespace Backupper.PLConsole
 {
@@ -17,10 +19,10 @@ namespace Backupper.PLConsole
 
                 var a = fileslogic.GetDirectory();
 
-               
+                var ListLog = new List<string>();
 
-                HandlerEvent MyE = new HandlerEvent();
-                WatcherLogic runner = new WatcherLogic(a, MyE);
+                IHandlerEvent MyE = new HandlerEvent();
+                WatcherLogic runner = new WatcherLogic(a, MyE, ListLog);
 
                 runner.Run();
 
@@ -28,6 +30,8 @@ namespace Backupper.PLConsole
                 {
                     MyE.StartEvent();
                 }
+
+
                 Console.ReadLine();
             }
            

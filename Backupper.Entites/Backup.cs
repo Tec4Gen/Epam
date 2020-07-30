@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Backupper.Entites
+namespace Backupper.Common.Entites
 {
     class Backup
     {

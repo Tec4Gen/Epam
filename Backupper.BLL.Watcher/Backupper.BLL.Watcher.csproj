@@ -45,13 +45,21 @@
     <Compile Include="WatcherLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Backupper.BLL.BackupLog.Interface\Backupper.BLL.BackupLog.Interface.csproj">
+      <Project>{FDD00F05-4205-48D9-A74A-3160688C70CF}</Project>
+      <Name>Backupper.BLL.BackupLog.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backupper.BLL.BackupLog\Backupper.BLL.BackupLog.csproj">
+      <Project>{5637298B-312E-48BE-8D91-B4824B0385C4}</Project>
+      <Name>Backupper.BLL.BackupLog</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Backupper.BLL.Watcher.Interface\Backupper.BLL.Watcher.Interface.csproj">
       <Project>{B45CBC8E-5618-46BB-9296-D0C3476806F0}</Project>
       <Name>Backupper.BLL.Watcher.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Backupper.BLL.WatcherEvent\Backupper.BLL.WatcherEvent.csproj">
-      <Project>{1DDD3EDE-F7F1-44D3-B06E-EF2CFB9F6E2D}</Project>
-      <Name>Backupper.BLL.WatcherEvent</Name>
+    <ProjectReference Include="..\Backupper.BLL.WatcherEvent.Interface\Backupper.BLL.WatcherEvent.Interface.csproj">
+      <Project>{0565DA3A-EEF2-472A-B4F3-5A08E635BC35}</Project>
+      <Name>Backupper.BLL.WatcherEvent.Interface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

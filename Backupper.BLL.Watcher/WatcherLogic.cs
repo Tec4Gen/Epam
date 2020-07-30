@@ -1,9 +1,12 @@
-﻿using Backupper.BLL.Watcher.Interface;
-using Backupper.BLL.WatcherEvent;
+﻿using Backupper.BLL.BackupLog;
+using Backupper.BLL.BackupLog.Interface;
+using Backupper.BLL.Watcher.Interface;
+using BackUpper.BLL.WatcherEvent;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
-using System.Runtime.InteropServices;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Backupper.BLL.Watcher
@@ -15,12 +18,16 @@ namespace Backupper.BLL.Watcher
         private static List<string> _logList { get; set; }
         public static string _logMessage { get; set; }
 
-        private HandlerEvent _eventUI { get; set; }
+        private IHandlerEvent _eventUI { get; set; }
+        public IBackupLogic _logger { get; set; }
         private bool Flag { get; set; } = true;
+
+
+      
         #endregion
 
         #region constructor
-        public WatcherLogic(DirectoryInfo path, HandlerEvent handler)
+        public WatcherLogic(DirectoryInfo path, IHandlerEvent handler, List<string> listlog)
         {
             if (path == null)
                 // TODO:
@@ -28,7 +35,7 @@ namespace Backupper.BLL.Watcher
             _eventUI = handler;
             _rootFolder = path;
 
-            _logList = new List<string>();
+            _logList = listlog;
         }
 
         #endregion
@@ -37,7 +44,7 @@ namespace Backupper.BLL.Watcher
         public async void Run()
         {
             _eventUI.OnEvent += Cancel;
-            await Task.Run(() => Watcher());
+             await Task.Run(() => Watcher());
         }
 
         private void Cancel()
@@ -65,8 +72,11 @@ namespace Backupper.BLL.Watcher
 
                 while (Flag) ;
 
+                _logger = new BackupLogic(_logList);
+                _logger.CreateArchive();
 
                 Console.WriteLine("Я умер");
+
             }
         }
 
@@ -77,9 +87,9 @@ namespace Backupper.BLL.Watcher
         {
             _logMessage = PathFormatting(new Uri(e.FullPath), new Uri(_rootFolder.FullName));
 
-            _logList.Add(_logMessage);
+            _logList.Add($"File: {_logMessage} => {e.ChangeType}");
 
-            Console.WriteLine($"File: {_logMessage} => {e.ChangeType}");
+            Console.WriteLine(_logList.Last());
 
         }
 
@@ -87,18 +97,18 @@ namespace Backupper.BLL.Watcher
         {
             _logMessage = PathFormatting(new Uri(e.FullPath), new Uri(_rootFolder.FullName));
 
-            _logList.Add(_logMessage);
+            _logList.Add($"File: {_logMessage} => {e.ChangeType}");
 
-            Console.WriteLine($"File: {_logMessage} => {e.ChangeType}");
+            Console.WriteLine(_logList.Last());
         }
 
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
             _logMessage = PathFormatting(new Uri(e.FullPath), new Uri(_rootFolder.FullName));
 
-            _logList.Add(_logMessage);
+            _logList.Add($"File: {_logMessage} => {e.ChangeType}");
 
-            Console.WriteLine($"File: {_logMessage} => {e.ChangeType}");
+            Console.WriteLine(_logList.Last());
         }
 
         private static string PathFormatting(Uri fileUri, Uri rootUri)
