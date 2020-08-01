@@ -5,16 +5,14 @@ using System.Configuration;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Backupper.DAL
 {
     public class BackupDao : IBackupDao
     {
-        private string _backupDirectory = ConfigurationManager.AppSettings.Get("BackupDirectory"); //["SourceDirectory"];
-        private string _sourceDirectory = ConfigurationManager.AppSettings.Get("SourceDirectory"); //["SourceDirectory"];
+        private string _backupDirectory = ConfigurationManager.AppSettings.Get("BackupDirectory");
+        private string _sourceDirectory = ConfigurationManager.AppSettings.Get("SourceDirectory");
         public DirectoryInfo GetBbackUpDirectory()
         {
             try
@@ -31,7 +29,7 @@ namespace Backupper.DAL
         public IEnumerable<FileInfo> GetAllArchive()
         {
             try
-            { 
+            {
                 return GetBbackUpDirectory().GetFiles("*.rar");
             }
             catch (Exception)
@@ -40,22 +38,24 @@ namespace Backupper.DAL
             }
         }
 
-        public void CreateArchive(IEnumerable<string> logList) 
+        public void CreateArchive(IEnumerable<string> logList)
         {
-            string ZipArchiveName = Path.Combine(_backupDirectory, $"BackUp {DateTime.Now.ToString("dd_MMMM_yyyy HH_mm_ss")}.zip");
-           
+            string time = $"{DateTime.Now.ToString("dd_MMMM_yyyy HH_mm_ss")}";
+
+            string ZipArchiveName = Path.Combine(_backupDirectory, $"BackUp {time}.zip");
+
             ZipFile.CreateFromDirectory(_sourceDirectory, Path.Combine(_backupDirectory, ZipArchiveName), CompressionLevel.Optimal, true, Encoding.UTF8);
 
             using (FileStream zipToOpen = new FileStream(ZipArchiveName, FileMode.Open))
             {
                 using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
                 {
-                    ZipArchiveEntry readmeEntry = archive.CreateEntry("Log.txt");
+                    ZipArchiveEntry readmeEntry = archive.CreateEntry($"Log_{time}.txt");
                     using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
                     {
                         writer.Write("Logging." +
                             Environment.NewLine +
-                            new String('=',40) +
+                            new String('=', 40) +
                             Environment.NewLine);
 
                         foreach (var item in logList)
@@ -66,6 +66,22 @@ namespace Backupper.DAL
                     }
                 }
             }
+        }
+
+        public bool RestoreVersion(string versionName)
+        {
+
+            using (var zip = ZipFile.Open(Path.Combine(_backupDirectory, versionName), ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry file in zip.Entries)
+                {
+                    //пропущено тело цикла
+                    //ignoredFilenames - массив игнорируемых файлов
+                    file.ExtractToFile(_sourceDirectory, true);
+                }
+            }
+
+            return true;
         }
     }
 }

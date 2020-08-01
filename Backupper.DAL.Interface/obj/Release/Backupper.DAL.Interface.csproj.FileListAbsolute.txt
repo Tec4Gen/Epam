@@ -1,0 +1,6 @@
+D:\MyGit\Epam\Backupper.DAL.Interface\bin\Release\Backupper.DAL.Interface.dll
+D:\MyGit\Epam\Backupper.DAL.Interface\bin\Release\Backupper.DAL.Interface.pdb
+D:\MyGit\Epam\Backupper.DAL.Interface\obj\Release\Backupper.DAL.Interface.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.DAL.Interface\obj\Release\Backupper.DAL.Interface.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.DAL.Interface\obj\Release\Backupper.DAL.Interface.dll
+D:\MyGit\Epam\Backupper.DAL.Interface\obj\Release\Backupper.DAL.Interface.pdb

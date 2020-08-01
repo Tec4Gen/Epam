@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backupper.BLL.Interface
 {
@@ -11,6 +7,9 @@ namespace Backupper.BLL.Interface
     {
         DirectoryInfo GetBbackUpDirectory();
 
-        IEnumerable<FileInfo> GetBackUpFolder();
+        IEnumerable<FileInfo> GetAllArchive();
+
+        void CreateBackup(IEnumerable<string>  loglist);
+        bool RestoreVersion(string versionName);
     }
 }

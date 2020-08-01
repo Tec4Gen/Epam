@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backupper.DAL.Interface
 {
@@ -14,5 +10,7 @@ namespace Backupper.DAL.Interface
         IEnumerable<FileInfo> GetAllArchive();
 
         void CreateArchive(IEnumerable<string> logList);
+
+        bool RestoreVersion(string versionName); 
     }
 }

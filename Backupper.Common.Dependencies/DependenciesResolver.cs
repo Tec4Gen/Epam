@@ -1,4 +1,5 @@
 ﻿using Backupper.BLL;
+using Backupper.BLL.BackupLog;
 using Backupper.BLL.Interface;
 using Backupper.DAL;
 using Backupper.DAL.Interface;
@@ -14,7 +15,9 @@ namespace Backupper.Common.Dependencies
         private static IBackupDao _backupDao { get; set; } = new BackupDao();
 
         public static IBackupLogic BackupLogic { get; set; } = new BackupLogic(_backupDao);
-}
+
+
+    }
 
 }
 /*

@@ -1,10 +1,9 @@
-﻿using Backupper.BLL.BackupLog;
-using Backupper.BLL.BackupLog.Interface;
+﻿using Backupper.BLL.Interface;
 using Backupper.BLL.Watcher.Interface;
+using Backupper.Common.Dependencies;
 using BackUpper.BLL.WatcherEvent;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +18,8 @@ namespace Backupper.BLL.Watcher
         public static string _logMessage { get; set; }
 
         private IHandlerEvent _eventUI { get; set; }
-        public IBackupLogic _logger { get; set; }
+
+        private IBackupLogic _backupLogic;
         private bool Flag { get; set; } = true;
 
 
@@ -33,9 +33,12 @@ namespace Backupper.BLL.Watcher
                 // TODO:
                 throw new ArgumentNullException();
             _eventUI = handler;
+
             _rootFolder = path;
 
             _logList = listlog;
+
+            _backupLogic = DependenciesResolver.BackupLogic;
         }
 
         #endregion
@@ -72,9 +75,8 @@ namespace Backupper.BLL.Watcher
 
                 while (Flag) ;
 
-                _logger = new BackupLogic(_logList);
-                _logger.CreateArchive();
-
+                _backupLogic.CreateBackup(_logList);
+                
                 Console.WriteLine("Я умер");
 
             }

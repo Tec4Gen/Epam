@@ -1,30 +1,37 @@
-﻿using Backupper.BLL.Interface;
-using Backupper.DAL.Interface;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Backupper.BLL.Interface;
+using Backupper.DAL;
+using Backupper.DAL.Interface;
 
-namespace Backupper.BLL
+namespace Backupper.BLL.BackupLog
 {
     public class BackupLogic: IBackupLogic
     {
-        private IBackupDao _backupDao;
-        
-        public BackupLogic(IBackupDao backupDao)
+        private IBackupDao _backuoDao;
+        public BackupLogic(IBackupDao backuoDao)
         {
-            _backupDao = backupDao;
-        }
-        public IEnumerable<FileInfo> GetBackUpFolder()
-        {
-            throw new NotImplementedException();
+            _backuoDao = backuoDao;
         }
 
         public DirectoryInfo GetBbackUpDirectory()
         {
-            throw new NotImplementedException();
+            return _backuoDao.GetBbackUpDirectory();
+        }
+
+        public IEnumerable<FileInfo> GetAllArchive()
+        {
+            return _backuoDao.GetAllArchive();
+        }
+
+        public void CreateBackup(IEnumerable<string> loglist)
+        {
+            _backuoDao.CreateArchive(loglist);
+        }
+
+        public bool RestoreVersion(string versionName)
+        {
+            return _backuoDao.RestoreVersion(versionName);
         }
     }
 }

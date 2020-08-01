@@ -54,6 +54,10 @@
       <Project>{73608895-F114-44A6-859B-D07A4732ED15}</Project>
       <Name>Backupper.DAL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Backupper.DAL\Backupper.DAL.csproj">
+      <Project>{DF2D064C-6225-4AC1-A9CE-9634BC62BE10}</Project>
+      <Name>Backupper.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

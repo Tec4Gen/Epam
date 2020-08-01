@@ -9,3 +9,5 @@ D:\MyGit\Epam\Backupper.BLL\obj\Debug\Backupper.BLL.csproj.CoreCompileInputs.cac
 D:\MyGit\Epam\Backupper.BLL\obj\Debug\Backupper.BLL.csproj.CopyComplete
 D:\MyGit\Epam\Backupper.BLL\obj\Debug\Backupper.BLL.dll
 D:\MyGit\Epam\Backupper.BLL\obj\Debug\Backupper.BLL.pdb
+D:\MyGit\Epam\Backupper.BLL\bin\Debug\Backupper.DAL.dll
+D:\MyGit\Epam\Backupper.BLL\bin\Debug\Backupper.DAL.pdb

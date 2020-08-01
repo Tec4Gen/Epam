@@ -1,0 +1,15 @@
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.Common.Dependencies.dll
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.Common.Dependencies.pdb
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.BLL.dll
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.BLL.Interface.dll
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.DAL.dll
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.DAL.Interface.dll
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.BLL.Interface.pdb
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.BLL.pdb
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.DAL.Interface.pdb
+D:\MyGit\Epam\Backupper.Common.Dependencies\bin\Release\Backupper.DAL.pdb
+D:\MyGit\Epam\Backupper.Common.Dependencies\obj\Release\Backupper.Common.Dependencies.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.Common.Dependencies\obj\Release\Backupper.Common.Dependencies.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.Common.Dependencies\obj\Release\Backupper.Common.Dependencies.csproj.CopyComplete
+D:\MyGit\Epam\Backupper.Common.Dependencies\obj\Release\Backupper.Common.Dependencies.dll
+D:\MyGit\Epam\Backupper.Common.Dependencies\obj\Release\Backupper.Common.Dependencies.pdb

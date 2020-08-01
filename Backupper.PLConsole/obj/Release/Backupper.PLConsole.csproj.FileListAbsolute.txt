@@ -14,3 +14,13 @@ D:\MyGit\Epam\Backupper.PLConsole\obj\Release\Backupper.PLConsole.csproj.CoreCom
 D:\MyGit\Epam\Backupper.PLConsole\obj\Release\Backupper.PLConsole.csproj.CopyComplete
 D:\MyGit\Epam\Backupper.PLConsole\obj\Release\Backupper.PLConsole.exe
 D:\MyGit\Epam\Backupper.PLConsole\obj\Release\Backupper.PLConsole.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.BLL.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.BLL.Interface.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.Common.Dependencies.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.DAL.Interface.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.DAL.dll
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.BLL.Interface.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.BLL.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.Common.Dependencies.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.DAL.Interface.pdb
+D:\MyGit\Epam\Backupper.PLConsole\bin\Release\Backupper.DAL.pdb
