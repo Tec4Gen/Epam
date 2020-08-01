@@ -14,25 +14,25 @@ namespace Backupper.BLL.Watcher
     {
         #region Fields
         private static DirectoryInfo _rootFolder { get; set; }
-        private static List<string> _logList { get; set; }
+        private static IList<string> _logList { get; set; }
         public static string _logMessage { get; set; }
 
-        private IHandlerEvent _eventUI { get; set; }
+        private IHandlerEvent _handlerEvent { get; set; }
 
         private IBackupLogic _backupLogic;
         private bool Flag { get; set; } = true;
 
-
-      
         #endregion
 
         #region constructor
         public WatcherLogic(DirectoryInfo path, IHandlerEvent handler, List<string> listlog)
         {
-            if (path == null)
-                // TODO:
-                throw new ArgumentNullException();
-            _eventUI = handler;
+            if (path == null || listlog == null)
+                throw new ArgumentNullException("Argumet cannot null");
+            if (listlog.Count() > 0)
+                throw new ArgumentException("Cannot be greater than zero");
+            
+            _handlerEvent = handler;
 
             _rootFolder = path;
 
@@ -46,14 +46,14 @@ namespace Backupper.BLL.Watcher
         #region main Non-Static Methods
         public async void Run()
         {
-            _eventUI.OnEvent += Cancel;
+            _handlerEvent.OnEvent += Cancel;
              await Task.Run(() => Watcher());
         }
 
         private void Cancel()
         {
             Flag = false;
-            _eventUI.OnEvent -= Cancel;
+            _handlerEvent.OnEvent -= Cancel;
         }
 
         private void Watcher()
@@ -76,8 +76,6 @@ namespace Backupper.BLL.Watcher
                 while (Flag) ;
 
                 _backupLogic.CreateBackup(_logList);
-                
-                Console.WriteLine("Я умер");
 
             }
         }

@@ -1,8 +1,11 @@
 ﻿using Backupper.BLL;
 using Backupper.BLL.BackupLog;
 using Backupper.BLL.Interface;
+using Backupper.BLL.Watcher.Interface;
+using Backupper.BLL.WatcherEvent;
 using Backupper.DAL;
 using Backupper.DAL.Interface;
+using BackUpper.BLL.WatcherEvent;
 
 namespace Backupper.Common.Dependencies
 {
@@ -16,6 +19,7 @@ namespace Backupper.Common.Dependencies
 
         public static IBackupLogic BackupLogic { get; set; } = new BackupLogic(_backupDao);
 
+        public static IHandlerEvent HandlerEvent { get; set; } = new HandlerEvent();
 
     }
 

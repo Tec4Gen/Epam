@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Backupper.BLL.Interface;
+using Backupper.Common.TypeMessage;
 using Backupper.DAL;
 using Backupper.DAL.Interface;
+using Backupper.PLConsole;
 
 namespace Backupper.BLL.BackupLog
 {
@@ -16,22 +19,58 @@ namespace Backupper.BLL.BackupLog
 
         public DirectoryInfo GetBbackUpDirectory()
         {
-            return _backuoDao.GetBbackUpDirectory();
+            try
+            {
+                return _backuoDao.GetBbackUpDirectory();
+            }
+            catch (Exception ex)
+            {
+                Response.Result(TypeMessage.Error);
+                return null;
+            }
+           
         }
 
         public IEnumerable<FileInfo> GetAllArchive()
         {
-            return _backuoDao.GetAllArchive();
+            try
+            {
+                return _backuoDao.GetAllArchive();
+            }
+            catch (Exception)
+            {
+                Response.Result(TypeMessage.Error);
+                return null;
+            }
+           
         }
 
         public void CreateBackup(IEnumerable<string> loglist)
         {
-            _backuoDao.CreateArchive(loglist);
+            try
+            {
+                _backuoDao.CreateArchive(loglist);
+                Response.Result(TypeMessage.Successful);
+            }
+            catch 
+            {
+                Response.Result(TypeMessage.Error);
+            }
+           
         }
 
-        public bool RestoreVersion(string versionName)
+        public void RestoreVersion(string versionName)
         {
-            return _backuoDao.RestoreVersion(versionName);
+            try
+            {
+               _backuoDao.RestoreVersion(versionName);
+                Response.Result(TypeMessage.Successful);
+            }
+            catch
+            {
+                Response.Result(TypeMessage.Error);
+                return;
+            }
         }
     }
 }

@@ -7,3 +7,6 @@ D:\MyGit\Epam\Backupper.DAL\obj\Debug\Backupper.DAL.csproj.CoreCompileInputs.cac
 D:\MyGit\Epam\Backupper.DAL\obj\Debug\Backupper.DAL.csproj.CopyComplete
 D:\MyGit\Epam\Backupper.DAL\obj\Debug\Backupper.DAL.dll
 D:\MyGit\Epam\Backupper.DAL\obj\Debug\Backupper.DAL.pdb
+D:\MyGit\Epam\Backupper.DAL\bin\Debug\DotNetZip.dll
+D:\MyGit\Epam\Backupper.DAL\bin\Debug\DotNetZip.pdb
+D:\MyGit\Epam\Backupper.DAL\bin\Debug\DotNetZip.xml

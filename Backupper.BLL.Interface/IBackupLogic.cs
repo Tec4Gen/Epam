@@ -10,6 +10,6 @@ namespace Backupper.BLL.Interface
         IEnumerable<FileInfo> GetAllArchive();
 
         void CreateBackup(IEnumerable<string>  loglist);
-        bool RestoreVersion(string versionName);
+        void RestoreVersion(string versionName);
     }
 }

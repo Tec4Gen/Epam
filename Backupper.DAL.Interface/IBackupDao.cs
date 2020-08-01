@@ -11,6 +11,6 @@ namespace Backupper.DAL.Interface
 
         void CreateArchive(IEnumerable<string> logList);
 
-        bool RestoreVersion(string versionName); 
+        void RestoreVersion(string versionName); 
     }
 }

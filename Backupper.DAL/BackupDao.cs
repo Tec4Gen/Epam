@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Text;
 using System.IO.Compression;
 using System.Linq;
-using System.Text;
+using System.Threading;
 
 namespace Backupper.DAL
 {
@@ -19,10 +20,9 @@ namespace Backupper.DAL
             {
                 return new DirectoryInfo(_backupDirectory);
             }
-            catch (Exception)
+            catch
             {
-
-                throw;
+                throw new DirectoryNotFoundException("Path Not Found");
             }
         }
 
@@ -34,7 +34,7 @@ namespace Backupper.DAL
             }
             catch (Exception)
             {
-                throw;
+                throw new DirectoryNotFoundException("Path Not Found");
             }
         }
 
@@ -43,45 +43,61 @@ namespace Backupper.DAL
             string time = $"{DateTime.Now.ToString("dd_MMMM_yyyy HH_mm_ss")}";
 
             string ZipArchiveName = Path.Combine(_backupDirectory, $"BackUp {time}.zip");
-
-            ZipFile.CreateFromDirectory(_sourceDirectory, Path.Combine(_backupDirectory, ZipArchiveName), CompressionLevel.Optimal, true, Encoding.UTF8);
-
-            using (FileStream zipToOpen = new FileStream(ZipArchiveName, FileMode.Open))
+            try
             {
-                using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
-                {
-                    ZipArchiveEntry readmeEntry = archive.CreateEntry($"Log_{time}.txt");
-                    using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
-                    {
-                        writer.Write("Logging." +
-                            Environment.NewLine +
-                            new String('=', 40) +
-                            Environment.NewLine);
+                ZipFile.CreateFromDirectory(_sourceDirectory,
+                                            Path.Combine(_backupDirectory, ZipArchiveName), 
+                                            CompressionLevel.Optimal, 
+                                            true, 
+                                            Encoding.UTF8);
 
-                        foreach (var item in logList)
+                using (FileStream zipToOpen = new FileStream(ZipArchiveName, FileMode.Open))
+                {
+                    using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
+                    {
+                        ZipArchiveEntry readmeEntry = archive.CreateEntry($"Log_{time}.txt");
+                        using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
                         {
-                            writer.WriteLine(item);
+                            writer.Write("Logging." +
+                                Environment.NewLine +
+                                new String('=', 40) +
+                                Environment.NewLine);
+
+                            foreach (var item in logList)
+                            {
+                                writer.WriteLine(item);
+                            }
+                            writer.Write(new String('=', 40));
                         }
-                        writer.Write(new String('=', 40));
                     }
                 }
             }
-        }
-
-        public bool RestoreVersion(string versionName)
-        {
-
-            using (var zip = ZipFile.Open(Path.Combine(_backupDirectory, versionName), ZipArchiveMode.Read))
+            catch
             {
-                foreach (ZipArchiveEntry file in zip.Entries)
+                throw new DirectoryNotFoundException("Path Not Found");
+            }
+            
+        }
+        public void RestoreVersion(string versionName)
+        {
+            using (var zip = ZipFile.Open(Path.Combine(_backupDirectory, versionName), ZipArchiveMode.Update))
+            {
+                try
                 {
-                    //пропущено тело цикла
-                    //ignoredFilenames - массив игнорируемых файлов
-                    file.ExtractToFile(_sourceDirectory, true);
+                    var sourceFolder = new DirectoryInfo(_sourceDirectory);
+                    string nameFolder = sourceFolder.Name;
+                    string root = $"{_sourceDirectory.Replace(nameFolder, "")}";
+                    Directory.Delete(sourceFolder.FullName, true);
+                   
+                    zip.ExtractToDirectory(root);
+
+                    File.Delete(Path.Combine(root, zip.Entries.LastOrDefault().Name));
+                }
+                catch
+                {
+                    throw new DirectoryNotFoundException("Path Not Found");
                 }
             }
-
-            return true;
         }
     }
 }

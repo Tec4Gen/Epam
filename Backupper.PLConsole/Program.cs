@@ -8,50 +8,50 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.IO.Compression;
+using System.Threading;
 
 namespace Backupper.PLConsole
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-             //string _backupDirectory = ConfigurationManager.AppSettings.Get("BackupDirectory");
-             //string _sourceDirectory = ConfigurationManager.AppSettings.Get("SourceDirectory");
-            while (true) 
+
+            var fileslogic = DependenciesResolver.FilesLogic;
+            var Backuplogic = DependenciesResolver.BackupLogic;
+            var a = fileslogic.GetDirectory();
+
+            var ListLog = new List<string>();
+
+            IHandlerEvent MyE = new HandlerEvent();
+            WatcherLogic runner;
+
+
+            Console.WriteLine("1 or 2");
+            int.TryParse(Console.ReadLine(), out int x);
+
+
+
+            switch (x)
             {
+                case 1:
+                    runner = new WatcherLogic(a, MyE, ListLog);
+                    runner.Run();
+                    Console.WriteLine("Enter exitt 1");
 
-                var fileslogic = DependenciesResolver.FilesLogic;
-                var Backuplogic = DependenciesResolver.BackupLogic;
-                var a = fileslogic.GetDirectory();
-
-                var ListLog = new List<string>();
-
-                IHandlerEvent MyE = new HandlerEvent();
-                WatcherLogic runner = new WatcherLogic(a, MyE, ListLog);
-
-                runner.Run();
-
-
-                if (int.TryParse(Console.ReadLine(), out int x))
-                {
-                    MyE.StartEvent();
-                }
-
-                Backuplogic.RestoreVersion("BackUp 01_August_2020 11_25_55.zip");
-                Console.ReadLine();
-
-                //using (var zip = ZipFile.Open(Path.Combine(_backupDirectory, "BackUp 01_August_2020 11_25_55.zip"), ZipArchiveMode.Read))
-                //{
-                //    foreach (ZipArchiveEntry file in zip.Entries)
-                //    {
-                //        //пропущено тело цикла
-                //        //ignoredFilenames - массив игнорируемых файлов
-                //        file.ExtractToFile(_sourceDirectory, true);
-                //    }
-                //}
+                    if (int.TryParse(Console.ReadLine(), out int y))
+                    {
+                        MyE.StartEvent();
+                    }
+                Console.Read();
+                    break;
+                case 2:
+                    Backuplogic.RestoreVersion("BackUp 01_August_2020 22_34_55.zip");
+                    break;
             }
-           
+
+            
         }
     }
 }
