@@ -1,11 +1,15 @@
 ﻿using Backupper.BLL.Interface;
 using Backupper.BLL.Watcher.Interface;
 using Backupper.Common.Dependencies;
+using Backupper.Common.TypeMessage;
+using Backupper.PLConsole;
 using BackUpper.BLL.WatcherEvent;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Messaging;
+using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 
 namespace Backupper.BLL.Watcher
@@ -58,26 +62,36 @@ namespace Backupper.BLL.Watcher
 
         private void Watcher()
         {
-
-            using (FileSystemWatcher watcher = new FileSystemWatcher(_rootFolder.FullName))
+            try
             {
-                watcher.NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite;
+                using (FileSystemWatcher watcher = new FileSystemWatcher(_rootFolder.FullName))
+                {
+                    watcher.NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite;
 
-                watcher.Filter = @"*.txt";
+                    watcher.Filter = @"*.txt";
 
-                watcher.Changed += OnChanged;
-                watcher.Created += OnCreated;
-                watcher.Renamed += OnRenamed;
+                    watcher.Changed += OnChanged;
+                    watcher.Created += OnCreated;
+                    watcher.Renamed += OnRenamed;
 
-                watcher.EnableRaisingEvents = true;
-                watcher.IncludeSubdirectories = true;
-                Console.WriteLine("Press 'q' to quit the sample.");
+                    watcher.EnableRaisingEvents = true;
+                    watcher.IncludeSubdirectories = true;
 
-                while (Flag) ;
+                    while (Flag) ;
 
-                _backupLogic.CreateBackup(_logList);
+                    Flag = true;
 
+
+                    _backupLogic.CreateBackup(_logList);
+                    return;
+                }
             }
+            catch
+            {
+                Response.Result(TypeMessage.Error);
+                return;
+            }
+
         }
 
         #endregion

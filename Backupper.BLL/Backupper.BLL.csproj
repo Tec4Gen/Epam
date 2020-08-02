@@ -50,13 +50,17 @@
       <Project>{E1F09284-0352-48AF-81A5-4F62619D12BE}</Project>
       <Name>Backupper.BLL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Backupper.Common.TypeMessage\Backupper.Common.TypeMessage.csproj">
+      <Project>{1BBD224D-285B-48B0-B4C0-934EF4BC055C}</Project>
+      <Name>Backupper.Common.TypeMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backupper.ConsoleResponseLogger\Backupper.ConsoleResponseLogger.csproj">
+      <Project>{AD8AD35C-F2A8-4C2C-A16D-680BAAE62D8A}</Project>
+      <Name>Backupper.ConsoleResponseLogger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Backupper.DAL.Interface\Backupper.DAL.Interface.csproj">
       <Project>{73608895-F114-44A6-859B-D07A4732ED15}</Project>
       <Name>Backupper.DAL.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Backupper.DAL\Backupper.DAL.csproj">
-      <Project>{DF2D064C-6225-4AC1-A9CE-9634BC62BE10}</Project>
-      <Name>Backupper.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

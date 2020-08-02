@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,14 @@
     <ProjectReference Include="..\Backupper.Common.Dependencies\Backupper.Common.Dependencies.csproj">
       <Project>{8B80A2DB-4967-4D1C-A432-85EC09909E6B}</Project>
       <Name>Backupper.Common.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backupper.Common.TypeMessage\Backupper.Common.TypeMessage.csproj">
+      <Project>{1BBD224D-285B-48B0-B4C0-934EF4BC055C}</Project>
+      <Name>Backupper.Common.TypeMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backupper.ConsoleResponseLogger\Backupper.ConsoleResponseLogger.csproj">
+      <Project>{AD8AD35C-F2A8-4C2C-A16D-680BAAE62D8A}</Project>
+      <Name>Backupper.ConsoleResponseLogger</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

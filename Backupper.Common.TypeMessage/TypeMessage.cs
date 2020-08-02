@@ -10,6 +10,9 @@ namespace Backupper.Common.TypeMessage
     {
         None,
         Error,
-        Successful
+        DataError,
+        Successful,
+        BackupСreated, 
+        NoBackupСreated
     }
 }

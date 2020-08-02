@@ -3,4 +3,3 @@ D:\MyGit\Epam\MyExtentionString\bin\Debug\MyExtentionString.pdb
 D:\MyGit\Epam\MyExtentionString\obj\Debug\MyExtentionString.csproj.CoreCompileInputs.cache
 D:\MyGit\Epam\MyExtentionString\obj\Debug\MyExtentionString.dll
 D:\MyGit\Epam\MyExtentionString\obj\Debug\MyExtentionString.pdb
-D:\MyGit\Epam\MyExtentionString\obj\Debug\MyExtentionString.csprojAssemblyReference.cache

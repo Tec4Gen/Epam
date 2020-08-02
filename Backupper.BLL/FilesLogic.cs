@@ -1,5 +1,7 @@
 ﻿using Backupper.BLL.Interface;
+using Backupper.Common.TypeMessage;
 using Backupper.DAL.Interface;
+using Backupper.PLConsole;
 using System.Collections.Generic;
 using System.IO;
 
@@ -16,12 +18,26 @@ namespace Backupper.BLL
 
         public DirectoryInfo GetDirectory()
         {
-            return _folderPath.GetDirectory();
+            var source = _folderPath.GetDirectory();
+            if (source == null)
+            {
+                Response.Result(TypeMessage.Error);
+                return null;
+            }
+            return source;
         }
 
         public IEnumerable<FileInfo> GetFiles()
         {
-            return _folderPath.GetFiles();
+            try
+            {
+                return _folderPath.GetFiles();
+            }
+            catch
+            {
+                Response.Result(TypeMessage.Error);
+                return null;
+            }
         }
     }
 }

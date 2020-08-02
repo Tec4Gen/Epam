@@ -16,26 +16,24 @@ namespace Backupper.DAL
         private string _sourceDirectory = ConfigurationManager.AppSettings.Get("SourceDirectory");
         public DirectoryInfo GetBbackUpDirectory()
         {
-            try
+            if (Directory.Exists(_backupDirectory))
             {
                 return new DirectoryInfo(_backupDirectory);
             }
-            catch
-            {
-                throw new DirectoryNotFoundException("Path Not Found");
-            }
+            return null;
         }
 
         public IEnumerable<FileInfo> GetAllArchive()
         {
-            try
+            var backup = GetBbackUpDirectory();
+
+            if (backup==null) 
             {
-                return GetBbackUpDirectory().GetFiles("*.rar");
+                return null;
             }
-            catch (Exception)
-            {
-                throw new DirectoryNotFoundException("Path Not Found");
-            }
+            return GetBbackUpDirectory().GetFiles("*.zip");
+        
+            
         }
 
         public void CreateArchive(IEnumerable<string> logList)
@@ -88,10 +86,14 @@ namespace Backupper.DAL
                     string nameFolder = sourceFolder.Name;
                     string root = $"{_sourceDirectory.Replace(nameFolder, "")}";
                     Directory.Delete(sourceFolder.FullName, true);
-                   
+
                     zip.ExtractToDirectory(root);
 
                     File.Delete(Path.Combine(root, zip.Entries.LastOrDefault().Name));
+                }
+                catch (InvalidDataException) 
+                {
+                    throw;
                 }
                 catch
                 {

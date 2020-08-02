@@ -12,15 +12,11 @@ namespace Backupper.DAL
 
         public DirectoryInfo GetDirectory()
         {
-            try
+            if (Directory.Exists(_sourceDirectory)) 
             {
                 return new DirectoryInfo(_sourceDirectory);
             }
-            catch
-            {
-                throw;
-            }
-
+            return null;    
         }
 
         public IEnumerable<FileInfo> GetFiles()
@@ -31,9 +27,9 @@ namespace Backupper.DAL
                 return GetDirectory().GetFiles("*.txt");
 
             }
-            catch (Exception)
+            catch
             {
-                throw;
+                throw new DirectoryNotFoundException("Path Not Found");
             }
 
         }

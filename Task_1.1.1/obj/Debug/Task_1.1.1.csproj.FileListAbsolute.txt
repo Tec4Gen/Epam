@@ -7,7 +7,6 @@ C:\Users\Neo\Desktop\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.pdb
 D:\MyGit\Epam\Task_1.1.1\bin\Debug\Task_1.1.1.exe.config
 D:\MyGit\Epam\Task_1.1.1\bin\Debug\Task_1.1.1.exe
 D:\MyGit\Epam\Task_1.1.1\bin\Debug\Task_1.1.1.pdb
-D:\MyGit\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.csprojAssemblyReference.cache
 D:\MyGit\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.csproj.CoreCompileInputs.cache
 D:\MyGit\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.exe
 D:\MyGit\Epam\Task_1.1.1\obj\Debug\Task_1.1.1.pdb

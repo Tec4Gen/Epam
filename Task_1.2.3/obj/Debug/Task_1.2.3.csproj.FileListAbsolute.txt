@@ -8,7 +8,6 @@ C:\Users\Neo\Desktop\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.csprojAssemblyReferenc
 D:\MyGit\Epam\Task_1.2.3\bin\Debug\Task_1.2.3.exe.config
 D:\MyGit\Epam\Task_1.2.3\bin\Debug\Task_1.2.3.exe
 D:\MyGit\Epam\Task_1.2.3\bin\Debug\Task_1.2.3.pdb
-D:\MyGit\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.csprojAssemblyReference.cache
 D:\MyGit\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.csproj.CoreCompileInputs.cache
 D:\MyGit\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.exe
 D:\MyGit\Epam\Task_1.2.3\obj\Debug\Task_1.2.3.pdb

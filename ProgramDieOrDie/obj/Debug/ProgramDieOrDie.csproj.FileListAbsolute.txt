@@ -1,6 +1,5 @@
 D:\MyGit\Epam\ProgramDieOrDie\bin\Debug\ProgramDieOrDie.dll
 D:\MyGit\Epam\ProgramDieOrDie\bin\Debug\ProgramDieOrDie.pdb
-D:\MyGit\Epam\ProgramDieOrDie\obj\Debug\ProgramDieOrDie.csprojAssemblyReference.cache
 D:\MyGit\Epam\ProgramDieOrDie\obj\Debug\ProgramDieOrDie.csproj.CoreCompileInputs.cache
 D:\MyGit\Epam\ProgramDieOrDie\obj\Debug\ProgramDieOrDie.dll
 D:\MyGit\Epam\ProgramDieOrDie\obj\Debug\ProgramDieOrDie.pdb

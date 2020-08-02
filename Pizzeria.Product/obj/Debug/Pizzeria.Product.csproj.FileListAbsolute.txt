@@ -1,6 +1,5 @@
 D:\MyGit\Epam\Pizzeria.Product\bin\Debug\Pizzeria.Product.dll
 D:\MyGit\Epam\Pizzeria.Product\bin\Debug\Pizzeria.Product.pdb
-D:\MyGit\Epam\Pizzeria.Product\obj\Debug\Pizzeria.Product.csprojAssemblyReference.cache
 D:\MyGit\Epam\Pizzeria.Product\obj\Debug\Pizzeria.Product.csproj.CoreCompileInputs.cache
 D:\MyGit\Epam\Pizzeria.Product\obj\Debug\Pizzeria.Product.dll
 D:\MyGit\Epam\Pizzeria.Product\obj\Debug\Pizzeria.Product.pdb

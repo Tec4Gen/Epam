@@ -12,7 +12,6 @@ D:\MyGit\CustomString\obj\Debug\CustomString.dll
 D:\MyGit\CustomString\obj\Debug\CustomString.pdb
 D:\MyGit\Epam\CustomString\bin\Debug\CustomString.dll
 D:\MyGit\Epam\CustomString\bin\Debug\CustomString.pdb
-D:\MyGit\Epam\CustomString\obj\Debug\CustomString.csprojAssemblyReference.cache
 D:\MyGit\Epam\CustomString\obj\Debug\CustomString.csproj.CoreCompileInputs.cache
 D:\MyGit\Epam\CustomString\obj\Debug\CustomString.dll
 D:\MyGit\Epam\CustomString\obj\Debug\CustomString.pdb

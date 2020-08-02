@@ -19,38 +19,46 @@ namespace Backupper.BLL.BackupLog
 
         public DirectoryInfo GetBbackUpDirectory()
         {
-            try
-            {
-                return _backuoDao.GetBbackUpDirectory();
-            }
-            catch (Exception ex)
+           
+            var backUp = _backuoDao.GetBbackUpDirectory();
+            if (backUp == null) 
             {
                 Response.Result(TypeMessage.Error);
                 return null;
             }
+                    
+
+           return backUp;
+            
            
         }
 
         public IEnumerable<FileInfo> GetAllArchive()
         {
-            try
-            {
-                return _backuoDao.GetAllArchive();
-            }
-            catch (Exception)
+            var backUp = _backuoDao.GetAllArchive();
+            if (backUp == null)
             {
                 Response.Result(TypeMessage.Error);
                 return null;
             }
-           
+            return backUp;
+
         }
 
-        public void CreateBackup(IEnumerable<string> loglist)
+        public void CreateBackup(IList<string> loglist)
         {
             try
             {
-                _backuoDao.CreateArchive(loglist);
-                Response.Result(TypeMessage.Successful);
+                if (loglist.Count > 0)
+                {
+                    _backuoDao.CreateArchive(loglist);
+                    Response.Result(TypeMessage.BackupСreated);
+                }
+                else 
+                {
+                    Response.Result(TypeMessage.NoBackupСreated);
+                }
+               
             }
             catch 
             {
@@ -63,8 +71,13 @@ namespace Backupper.BLL.BackupLog
         {
             try
             {
-               _backuoDao.RestoreVersion(versionName);
+                _backuoDao.RestoreVersion(versionName);
                 Response.Result(TypeMessage.Successful);
+            }
+            catch (InvalidDataException) 
+            {
+                Response.Result(TypeMessage.DataError);
+                return;
             }
             catch
             {

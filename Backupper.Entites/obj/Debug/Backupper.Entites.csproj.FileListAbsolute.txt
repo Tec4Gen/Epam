@@ -1,0 +1,6 @@
+D:\MyGit\Epam\Backupper.Entites\bin\Debug\Backupper.Entites.dll
+D:\MyGit\Epam\Backupper.Entites\bin\Debug\Backupper.Entites.pdb
+D:\MyGit\Epam\Backupper.Entites\obj\Debug\Backupper.Entites.csprojAssemblyReference.cache
+D:\MyGit\Epam\Backupper.Entites\obj\Debug\Backupper.Entites.csproj.CoreCompileInputs.cache
+D:\MyGit\Epam\Backupper.Entites\obj\Debug\Backupper.Entites.dll
+D:\MyGit\Epam\Backupper.Entites\obj\Debug\Backupper.Entites.pdb

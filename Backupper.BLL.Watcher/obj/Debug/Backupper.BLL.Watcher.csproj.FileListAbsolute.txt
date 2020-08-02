@@ -19,3 +19,9 @@ D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.dll
 D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.Interface.pdb
 D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.Common.Dependencies.pdb
 D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.WatcherEvent.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.ConsoleResponseLogger.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.Common.TypeMessage.dll
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.BLL.WatcherEvent.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.ConsoleResponseLogger.pdb
+D:\MyGit\Epam\Backupper.BLL.Watcher\bin\Debug\Backupper.Common.TypeMessage.pdb

@@ -49,6 +49,18 @@
       <Project>{E1F09284-0352-48AF-81A5-4F62619D12BE}</Project>
       <Name>Backupper.BLL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Backupper.BLL.Watcher.Interface\Backupper.BLL.Watcher.Interface.csproj">
+      <Project>{B45CBC8E-5618-46BB-9296-D0C3476806F0}</Project>
+      <Name>Backupper.BLL.Watcher.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backupper.BLL.WatcherEvent.Interface\Backupper.BLL.WatcherEvent.Interface.csproj">
+      <Project>{0565DA3A-EEF2-472A-B4F3-5A08E635BC35}</Project>
+      <Name>Backupper.BLL.WatcherEvent.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backupper.BLL.WatcherEvent\Backupper.BLL.WatcherEvent.csproj">
+      <Project>{1DDD3EDE-F7F1-44D3-B06E-EF2CFB9F6E2D}</Project>
+      <Name>Backupper.BLL.WatcherEvent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Backupper.BLL\Backupper.BLL.csproj">
       <Project>{286FF804-45C1-4743-97F5-2D9C8471BAEC}</Project>
       <Name>Backupper.BLL</Name>
