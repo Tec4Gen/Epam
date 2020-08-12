@@ -1,6 +1,0 @@
-D:\MyGit\Epam\TextAnalysis\bin\Debug\TextAnalysis.exe.config
-D:\MyGit\Epam\TextAnalysis\bin\Debug\TextAnalysis.exe
-D:\MyGit\Epam\TextAnalysis\bin\Debug\TextAnalysis.pdb
-D:\MyGit\Epam\TextAnalysis\obj\Debug\TextAnalysis.csproj.CoreCompileInputs.cache
-D:\MyGit\Epam\TextAnalysis\obj\Debug\TextAnalysis.exe
-D:\MyGit\Epam\TextAnalysis\obj\Debug\TextAnalysis.pdb

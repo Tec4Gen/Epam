@@ -1,9 +1,0 @@
-D:\MyGit\Epam\MyDynamicArray\bin\Debug\netstandard2.0\MyDynamicArray.deps.json
-D:\MyGit\Epam\MyDynamicArray\bin\Debug\netstandard2.0\MyDynamicArray.dll
-D:\MyGit\Epam\MyDynamicArray\bin\Debug\netstandard2.0\MyDynamicArray.pdb
-D:\MyGit\Epam\MyDynamicArray\obj\Debug\netstandard2.0\MyDynamicArray.AssemblyInfoInputs.cache
-D:\MyGit\Epam\MyDynamicArray\obj\Debug\netstandard2.0\MyDynamicArray.AssemblyInfo.cs
-D:\MyGit\Epam\MyDynamicArray\obj\Debug\netstandard2.0\MyDynamicArray.csproj.CoreCompileInputs.cache
-D:\MyGit\Epam\MyDynamicArray\obj\Debug\netstandard2.0\MyDynamicArray.dll
-D:\MyGit\Epam\MyDynamicArray\obj\Debug\netstandard2.0\MyDynamicArray.pdb
-D:\MyGit\Epam\MyDynamicArray\obj\Debug\netstandard2.0\MyDynamicArray.csprojAssemblyReference.cache

@@ -1,9 +1,0 @@
-D:\MyGit\Epam\Backupper.DAL\bin\Release\Backupper.DAL.dll
-D:\MyGit\Epam\Backupper.DAL\bin\Release\Backupper.DAL.pdb
-D:\MyGit\Epam\Backupper.DAL\bin\Release\Backupper.DAL.Interface.dll
-D:\MyGit\Epam\Backupper.DAL\bin\Release\Backupper.DAL.Interface.pdb
-D:\MyGit\Epam\Backupper.DAL\obj\Release\Backupper.DAL.csprojAssemblyReference.cache
-D:\MyGit\Epam\Backupper.DAL\obj\Release\Backupper.DAL.csproj.CoreCompileInputs.cache
-D:\MyGit\Epam\Backupper.DAL\obj\Release\Backupper.DAL.csproj.CopyComplete
-D:\MyGit\Epam\Backupper.DAL\obj\Release\Backupper.DAL.dll
-D:\MyGit\Epam\Backupper.DAL\obj\Release\Backupper.DAL.pdb

@@ -1,5 +1,0 @@
-D:\MyGit\Epam\Backupper.BLL.Interface\bin\Release\Backupper.BLL.Interface.dll
-D:\MyGit\Epam\Backupper.BLL.Interface\bin\Release\Backupper.BLL.Interface.pdb
-D:\MyGit\Epam\Backupper.BLL.Interface\obj\Release\Backupper.BLL.Interface.csproj.CoreCompileInputs.cache
-D:\MyGit\Epam\Backupper.BLL.Interface\obj\Release\Backupper.BLL.Interface.dll
-D:\MyGit\Epam\Backupper.BLL.Interface\obj\Release\Backupper.BLL.Interface.pdb
