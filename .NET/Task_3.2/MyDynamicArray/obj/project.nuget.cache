@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DTV+pbb9D9dPyMLngNVgCMZp+9ofH+KwqtJ0SnS8hL9I2Xdwdye+kHQVTRE3CxoGfOppAHSFi/yV1LmUBI7oUQ==",
+  "success": true,
+  "projectFilePath": "D:\\MyGit\\Epam\\Task_3.2\\MyDynamicArray\\MyDynamicArray.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Neo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Neo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
