@@ -3,8 +3,11 @@ class Service {
     #id = 0;
 
     add(value) {
-        if (value === undefined || value === null)
+        if (value === undefined)
             throw new SyntaxError(`value =>| invalid argument value`);
+
+        if (typeof (value) !== 'object')
+            throw new SyntaxError(`value =>| not object`);
 
         this.#mapList.set(this.#id.toString(), value);
         this.#id++;
@@ -31,7 +34,7 @@ class Service {
             throw new SyntaxError(`value =>| invalid argument value`);
 
         if (this.#mapList.has(keyString.toString())) {
-            let result = this.getById(keyString);
+            let result = this.#mapList.getById(keyString);
             this.#mapList.delete(keyString.toString());
 
             return result;
@@ -45,6 +48,27 @@ class Service {
             (value === undefined))
             throw new SyntaxError(`value =>| invalid argument value`);
 
+        if (typeof (value) !== 'object')
+            throw new SyntaxError(`value =>| not object`);
+
+        if (this.#mapList.has(keyString.toString())) {
+            let obj = this.getById(keyString);
+            obj = Object.assign(obj,value);
+
+            this.replaceById(keyString, obj);
+            return true;
+        }
+        return false;
+    }
+
+    replaceById(keyString, value) {
+        if ((keyString === undefined || keyString === null) ||
+            (value === undefined))
+            throw new SyntaxError(`value =>| invalid argument value`);
+
+        if (typeof (value) !== 'object')
+            throw new SyntaxError(`value =>| not object`);
+
         if (this.#mapList.has(keyString.toString())) {
             this.#mapList.set(keyString.toString(), value);
             return true;
@@ -57,11 +81,3 @@ class Service {
     }
 }
 
-let a = new Service();
-a.add(1);
-a.add(2);
-a.add({ 1: 1, 2: 2 });
-a.show();
-console.log(a.getAll());
-a.updateById(60,null);
-console.log(a.getAll());
