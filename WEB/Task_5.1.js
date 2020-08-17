@@ -1,14 +1,14 @@
 function MyFunc() {
         let punctuations = ".,:;!?";
 
-        let str = "У попа. была: собака";
-        
+        let str = "У. попа. была: собака";
+        let arrayWord;
         for (let index = 0; index < punctuations.length; index++) {
-        
-                str = str.replace(punctuations[index], '')
+                arrayWord = str.split(punctuations[index])
+                str = arrayWord.join("")
         }
         
-        let arrayWord = str.split(" ");
+        arrayWord = str.split(" ");
         str = arrayWord.join(" ");
         
         let count = 0;
