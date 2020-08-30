@@ -1,5 +1,5 @@
 import {Service} from "./MyArray.js";
-export let ArrayNote = new Service();
+export var ArrayNote = new Service();
 
 let modal = document.getElementById("ModalCreate");
 let mainBtn = document.getElementById("b__main__create");
@@ -7,11 +7,12 @@ let mainBtn_create = document.getElementById("b__create");
 let mainBtn_close = document.getElementById("b__close");
 
 export let bodyNode = document;
-
+// show modal window for create note
 mainBtn.onclick = function() {
   modal.classList.toggle("btn__show");
 }
 
+// btn Create note
 mainBtn_create.onclick = function() {
   let node = document.getElementById("base");
   let temp = node.cloneNode(true);
@@ -54,6 +55,7 @@ mainBtn_create.onclick = function() {
 
 }
 
+//btn close 
 mainBtn_close.onclick = function() {
   modal.classList.toggle("btn__show");
   bodyNode.getElementById("modal-content-head").innerHTML = '';

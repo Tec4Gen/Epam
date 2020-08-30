@@ -28,17 +28,19 @@ export class Service {
             throw new SyntaxError(`value =>| invalid argument value`);
 
         if (this.#mapList.has(keyString.toString())) {
+            
             return this.#mapList.get(keyString.toString());
         }
 
         return null;
     }
+
     deleteById(keyString) {
         if (keyString === undefined || keyString === null)
             throw new SyntaxError(`value =>| invalid argument value`);
 
         if (this.#mapList.has(keyString.toString())) {
-            let result = this.#mapList.getById(keyString);
+            let result = this.getById(keyString);
             this.#mapList.delete(keyString.toString());
 
             return result;
