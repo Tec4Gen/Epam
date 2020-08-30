@@ -1,13 +1,12 @@
 import {Service} from "./MyArray.js";
-let ArrayNote = new Service();
-
+export let ArrayNote = new Service();
 
 let modal = document.getElementById("ModalCreate");
 let mainBtn = document.getElementById("b__main__create");
 let mainBtn_create = document.getElementById("b__create");
 let mainBtn_close = document.getElementById("b__close");
 
-let bodyNode = document;
+export let bodyNode = document;
 
 mainBtn.onclick = function() {
   modal.classList.toggle("btn__show");
@@ -57,4 +56,7 @@ mainBtn_create.onclick = function() {
 
 mainBtn_close.onclick = function() {
   modal.classList.toggle("btn__show");
+  bodyNode.getElementById("modal-content-head").innerHTML = '';
+  bodyNode.getElementById("modal-content-body").innerHTML = '';
 }
+
