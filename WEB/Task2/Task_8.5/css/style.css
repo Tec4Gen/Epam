@@ -182,6 +182,7 @@ a {
     border-radius: 7px;
     background: url(img/trash.png) 0 0 no-repeat;
     background-position: 2px;
+    z-index:9;
 }
 .delete__note-item:active {
 
@@ -214,8 +215,8 @@ a {
     outline-offset: 0px;
     text-shadow: none;
     transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);  
-    right:200px;
-    bottom:60px;
+    top: calc(100% - 100px);
+    left: calc(100% - 100px);
 }
 .atuin-btn:hover,
 .atuin-btn:active {
@@ -226,7 +227,7 @@ a {
 }
 
 /* ModalCreate */
-.ModalCreate {
+.Modal {
     max-width: 100%;
     width: 100%;
     height: 100%;
@@ -239,7 +240,7 @@ a {
     align-items: center;
     justify-content: center;
 }
-.modalcontainer {
+.modal__container {
     max-width: 100%;
     width:535px;
     min-height: 150px;
@@ -268,7 +269,7 @@ a {
 .modal-header {
     max-width: 100%;
     width:100%;
-    min-height: 35px;
+    min-height: 30px;
     margin-bottom: 10px;
     font-size: 20px;
     font-weight: 800;
@@ -276,8 +277,8 @@ a {
 .modal-body {
     max-width: 100%;
     width:535px;
-    min-height:20px;
-    max-height: 150px;
+    min-height:30px;
+    max-height: 100%;
     white-space: normal;
 }
 .modal-header:focus, .modal-body:focus {
@@ -290,7 +291,7 @@ a {
     content:attr(data-placeholder);
     color:gray;
 }
-.btn__create, .btn__close {
+.btn__create, .btn__close, .btn__edit {
     position: absolute;
     display: flex;
     color:#555555;
@@ -300,7 +301,7 @@ a {
     align-items: center;
     font-weight: 900;
 }
-.btn__create {
+.btn__create, .btn__edit {
     right: 110px;
     bottom:0;
 }
@@ -308,7 +309,8 @@ a {
     right: 10px;
     bottom: 0px;
 }
-.btn__create:hover,.btn__close:hover {
+
+.btn__create:hover,.btn__close:hover, .btn__edit:hover {
     background:#ebebeb;
 }
 
@@ -324,3 +326,18 @@ a {
 #base {
     display: none;
 }
+/* Modal Edit */
+.edit__content {
+    position: relative;
+    padding: 20px 15px 40px 15px;
+}
+.edit__content::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #555555;
+    position: absolute;
+    bottom:35px;
+    left: 0;
+}
+

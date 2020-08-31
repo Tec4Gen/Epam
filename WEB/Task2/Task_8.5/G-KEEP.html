@@ -19,22 +19,23 @@
                 </div>
             </div>
             <div class="note__container">
-                <div id="notes__list" class="note__list">
-                    <div id="base" class="note__item">
-                        <div class="note__item-text a">
+                <div id="notes__list" class="note__list ">
+                    <div id="base" class="note__item note">
+                        <div id = "" class="note__item-text">
                             <span id="content__head-text" class="note-text-head"></span>
                             <span id="content__body-text" class="note-text-body"></span>
                             <button id="note-deleted-buttom" class="delete__note-item deleted" type="button"></button>
                         </div>
                     </div>    
                 </div>
-                <button id = "b__main__create" class="atuin-btn" type="button" value="Кнопка input" />+</button> 
             </div>  
+            <button id = "b__main__create" class="atuin-btn" type="button" value="Кнопка input" />+</button> 
         </div>
        
     </div>
-    <div id="ModalCreate" class="ModalCreate">
-        <div class="modalcontainer">
+<!-- Modal Create -->
+    <div id="ModalCreate" class="Modal">
+        <div class="modal__container">
             <div class="modal-dialog">
                 <div class="modal-content">
                   <div id="modal-content-head" contenteditable="true" data-placeholder="Заголовок заметки" class="modal-header" ></div>
@@ -42,19 +43,40 @@
                   <div id="modal-content-body" contenteditable="true" data-placeholder="Тест заметки" class="modal-body"></div>
                   </div>
                   <a href="#" id="b__create" class="btn__create">
-                    <span class="btn__create-text"> Создать</span>
+                    <span class="btn__create-text">Создать</span>
                   </a>
-                <a href="#" id="b__close" class="btn__close">
-                    <span class="btn__close-text"> Закрыть</span>
+                <a href="#" id="b__close__create" class="btn__close">
+                    <span class="btn__close-text">Закрыть</span>
                   </a>
                 </div>
                 
               </div>
             </div>
         </div>
+<!-- Modal Edit -->
+        <div id="ModalEdit" class="Modal">
+            <div class="modal__container">
+                <div class="modal-dialog">
+                    <div class="modal-content edit__content">
+                      <div id="modal-content-head-edit" contenteditable="true" data-placeholder="Заголовок заметки" class="modal-header" ></div>
+                      <!-- <div contenteditable="true" data-text="Enter text here">     -->
+                      <div id="modal-content-body-edit" contenteditable="true" data-placeholder="Тест заметки" class="modal-body edit__content__body"></div>
+                      </div>
+                      <a href="#" id="b__edit" class="btn__edit">
+                        <span class="btn__create-text">Изменить</span>
+                      </a>
+                    <a href="#" id="b__close__edit" class="btn__close">
+                        <span class="btn__close-text">Закрыть</span>
+                      </a>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
 
     <script type='module' src='js/CreateNote.js'></script>  
     <script type='module' src='js/MyArray.js'></script>  
     <script type='module' src='js/DeleteNotes.js'></script>  
+    <script type='module' src='js/EditNote.js'></script>  
 </body>
 </html>

@@ -1,10 +1,11 @@
 import {Service} from "./MyArray.js";
 export var ArrayNote = new Service();
+import {flag, toggleFlag} from "./DeleteNotes.js";
 
 let modal = document.getElementById("ModalCreate");
 let mainBtn = document.getElementById("b__main__create");
 let mainBtn_create = document.getElementById("b__create");
-let mainBtn_close = document.getElementById("b__close");
+let mainBtn_close = document.getElementById("b__close__create");
 
 export let bodyNode = document;
 // show modal window for create note
@@ -14,6 +15,7 @@ mainBtn.onclick = function() {
 
 // btn Create note
 mainBtn_create.onclick = function() {
+
   let node = document.getElementById("base");
   let temp = node.cloneNode(true);
 
@@ -47,7 +49,8 @@ mainBtn_create.onclick = function() {
   temp.querySelectorAll("span")[0].id = `content__head-text-${ArrayNote.id()}`;
   temp.querySelectorAll("span")[1].id = `content__body-text-${ArrayNote.id()}`;
   temp.querySelectorAll("button")[0].id = `note-deleted-buttom-${ArrayNote.id()}`;
-
+  temp.childNodes[1].id = (`note__item-text-${ArrayNote.id()}`);
+  console.log(temp);
   ArrayNote.add(temp);
 
   bodyNode.getElementById("modal-content-head").innerHTML = '';
