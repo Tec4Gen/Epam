@@ -19,11 +19,11 @@ namespace Backupper.BLL.Watcher
         #region Fields
         private static DirectoryInfo _rootFolder { get; set; }
         private static IList<string> _logList { get; set; }
-        public static string _logMessage { get; set; }
+        public static string _logMessage { get; set; } // private и public лучше не мешать. Сначала одни, потом другие
 
         private IHandlerEvent _handlerEvent { get; set; }
 
-        private IBackupLogic _backupLogic;
+        private IBackupLogic _backupLogic; // Сначала поля потом свойства
         private bool Flag { get; set; } = true;
 
         #endregion
@@ -48,7 +48,7 @@ namespace Backupper.BLL.Watcher
         #endregion
 
         #region main Non-Static Methods
-        public async void Run()
+        public async void Run() // Если асинхронный метод ничего не возвращает, лучше делать тип Task
         {
             _handlerEvent.OnEvent += Cancel;
              await Task.Run(() => Watcher());
@@ -57,7 +57,7 @@ namespace Backupper.BLL.Watcher
         private void Cancel()
         {
             Flag = false;
-            _handlerEvent.OnEvent -= Cancel;
+            _handlerEvent.OnEvent -= Cancel; // Проверяем есть ли ивенты, потом удаляем
         }
 
         private void Watcher()
