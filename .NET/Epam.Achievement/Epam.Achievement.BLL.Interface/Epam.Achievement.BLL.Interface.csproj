@@ -46,5 +46,11 @@
     <Compile Include="IClientLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epam.Achievement.Entities\Epam.Achievement.Entities.csproj">
+      <Project>{A15C590E-E784-4C98-8462-20AC11B6DFDF}</Project>
+      <Name>Epam.Achievement.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

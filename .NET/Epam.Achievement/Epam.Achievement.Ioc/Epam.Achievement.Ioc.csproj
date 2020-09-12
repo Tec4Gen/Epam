@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21C69E1B-F363-480F-A47A-2BB535EC78EA}</ProjectGuid>
+    <ProjectGuid>{3CF6C897-9AFE-4992-915C-9DCDD83D37FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Epam.Achievement.BLL</RootNamespace>
-    <AssemblyName>Epam.Achievement.BLL</AssemblyName>
+    <RootNamespace>Epam.Achievement.Ioc</RootNamespace>
+    <AssemblyName>Epam.Achievement.Ioc</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,40 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwardLogic.cs" />
-    <Compile Include="ClientAwardLogic.cs" />
-    <Compile Include="ClientLogic.cs" />
+    <Compile Include="DependenciesResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Scripts\jquery-3.0.0.min.map" />
-    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Epam.Achievement.BLL.Interface\Epam.Achievement.BLL.Interface.csproj">
       <Project>{e33708de-2a1d-40e7-8e4f-b59c6a520aca}</Project>
       <Name>Epam.Achievement.BLL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Epam.Achievement.BLL\Epam.Achievement.BLL.csproj">
+      <Project>{21C69E1B-F363-480F-A47A-2BB535EC78EA}</Project>
+      <Name>Epam.Achievement.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Epam.Achievement.DAL.Interface\Epam.Achievement.DAL.Interface.csproj">
-      <Project>{35e8c44d-eda8-4cbd-b7a5-a7a060e3e77a}</Project>
+      <Project>{35E8C44D-EDA8-4CBD-B7A5-A7A060E3E77A}</Project>
       <Name>Epam.Achievement.DAL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epam.Achievement.DAL\Epam.Achievement.FakeDAL.csproj">
       <Project>{2A8AD47A-CB36-4210-ABDF-B4FCF12E3618}</Project>
       <Name>Epam.Achievement.FakeDAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epam.Achievement.Entities\Epam.Achievement.Entities.csproj">
-      <Project>{A15C590E-E784-4C98-8462-20AC11B6DFDF}</Project>
-      <Name>Epam.Achievement.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

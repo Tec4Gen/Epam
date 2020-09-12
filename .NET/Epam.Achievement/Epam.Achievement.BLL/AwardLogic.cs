@@ -1,12 +1,32 @@
-﻿using System;
+﻿using Epam.Achievement.BLL.Interface;
+using Epam.Achievement.DAL.Interface;
+using Epam.Achievement.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Epam.Achievement.BLL
 {
-    class AwardLogic
+    public class AwardLogic : IAwardLogic
     {
+        private IAwardDao _awardDao;
+
+        public AwardLogic(IAwardDao awardDao)
+        {
+            _awardDao = awardDao;
+        }
+
+        public int Add(Award award)
+        {
+            return _awardDao.Add(award);
+        }
+
+        public bool Delete(int id)
+        {
+            return _awardDao.Delete(id);
+        }
+
+        public IEnumerable<Award> GetAll()
+        {
+            return _awardDao.GetAll();
+        }
     }
 }

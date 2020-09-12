@@ -1,10 +1,7 @@
 ﻿using Epam.Achievement.Entities;
-using Epam.Achievement.FakeDAL;
+using Epam.Achievement.Ioc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Epam.Acvievement.ConsolePL
 {
@@ -12,12 +9,13 @@ namespace Epam.Acvievement.ConsolePL
     {
         static void Main(string[] args)
         {
-            var a = new ClientDao();
-            var b = new AwardDao();
-            var c = new ClientAwardDao();
+            var a = DependenciesResolver.ClientLogic;
+            var b = DependenciesResolver.AwardLogic;
+            var c = DependenciesResolver.ClientWaradLogic;
 
             a.Add(new Client
             {
+                Id = 0 ,
                 Name = "Ivan",
                 Age = 21,
                 DataOfBirth = new DateTime()
@@ -25,11 +23,19 @@ namespace Epam.Acvievement.ConsolePL
 
             a.Add(new Client
             {
+                Id = 1,
                 Name = "Alex",
                 Age = 22,
                 DataOfBirth = new DateTime()
             });
 
+            a.Add(new Client
+            {
+                Id = 2,
+                Name = "Alex",
+                Age = 22,
+                DataOfBirth = new DateTime()
+            });
 
             b.Add(new Award 
             {

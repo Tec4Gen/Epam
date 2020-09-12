@@ -50,13 +50,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Epam.Achievement.DAL\Epam.Achievement.FakeDAL.csproj">
-      <Project>{2a8ad47a-cb36-4210-abdf-b4fcf12e3618}</Project>
-      <Name>Epam.Achievement.FakeDAL</Name>
+    <ProjectReference Include="..\Epam.Achievement.BLL.Interface\Epam.Achievement.BLL.Interface.csproj">
+      <Project>{E33708DE-2A1D-40E7-8E4F-B59C6A520ACA}</Project>
+      <Name>Epam.Achievement.BLL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epam.Achievement.Entities\Epam.Achievement.Entities.csproj">
       <Project>{A15C590E-E784-4C98-8462-20AC11B6DFDF}</Project>
       <Name>Epam.Achievement.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Achievement.Ioc\Epam.Achievement.Ioc.csproj">
+      <Project>{3cf6c897-9afe-4992-915c-9dcdd83d37fa}</Project>
+      <Name>Epam.Achievement.Ioc</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Epam.Achievement.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Epam.Achievement.DAL.Interface
+namespace Epam.Achievement.BLL.Interface
 {
-    public interface ClientLogic
+    public interface IClientLogic
     {
+        int Add(Client client);
+
+        bool Delete(int id);
+
+        IEnumerable<Client> GetAll();
     }
 }
