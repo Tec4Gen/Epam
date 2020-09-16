@@ -11,7 +11,7 @@ namespace Epam.Acvievement.ConsolePL
         {
             var a = DependenciesResolver.ClientLogic;
             var b = DependenciesResolver.AwardLogic;
-            var c = DependenciesResolver.ClientWaradLogic;
+            var c = DependenciesResolver.ClientAwaradLogic;
 
             a.Add(new Client
             {

@@ -5,6 +5,8 @@ namespace Epam.Achievement.DAL.Interface
 {
     public interface IAwardDao
     {
+        Award GetById(int id);
+
         int Add(Award award);
 
         bool Delete(int id);

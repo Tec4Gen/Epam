@@ -1,0 +1,14 @@
+﻿@using Epam.Achievement.Ioc;
+@using Epam.Achievement.BLL.Interface;
+@using Epam.Achievement.Entities;
+@{
+    IClientAwardLogic _clientAwardLogic = DependenciesResolver.ClientAwaradLogic;
+    IClientLogic _clientLogic = DependenciesResolver.ClientLogic;
+    IAwardLogic _awardLogic = DependenciesResolver.AwardLogic;
+
+    int.TryParse(Request["ClientId"],out int Result);
+    var a = _awardLogic.GetById(Result);
+    //TODO
+}
+
+<div>Дима хуй</div>

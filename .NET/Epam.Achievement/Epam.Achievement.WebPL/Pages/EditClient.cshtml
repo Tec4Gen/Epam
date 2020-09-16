@@ -1,0 +1,33 @@
+﻿@using Epam.Achievement.Entities;
+@using Epam.Achievement.Ioc;
+@using Epam.Achievement.BLL.Interface;
+@{
+    Layout = "BasePages/_formActionView.cshtml";
+    Page.Index = "ClientEdit";
+    var _clientLogic = DependenciesResolver.ClientLogic;
+    int.TryParse(Request["Id"], out int id);
+
+    var Client = _clientLogic.GetById(id);
+}
+
+@section ClientEdit
+    {
+    <div class="form-group">
+        <label for="ClientId">ClientId</label>
+        <input class="form-control" type="text" placeholder="@Client.Id" readonly>
+    </div>
+    <div class="form-group">
+        <label for="ClientName">@Client.Name</label>
+        <input class="form-control" type="text" placeholder="New name">
+    </div>
+    <div class="form-group">
+        <label for="ClientAge">@Client.Age</label>
+        <input class="form-control" type="text" placeholder="New age">
+    </div>
+    <div class="form-group">
+        <label for="ClientDataofBirth">@Client.DataOfBirth</label>
+        <input class="form-control" type="date" placeholder="New age">
+    </div>
+
+}
+

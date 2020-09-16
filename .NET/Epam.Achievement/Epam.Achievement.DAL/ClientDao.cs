@@ -28,12 +28,13 @@ namespace Epam.Achievement.FakeDAL
             {
 
                 var pair = new KeyValuePair<int, Client>(_id, client);
-                FakeDaoClient.Add(_id++, client);
+                client.Id = _id;
+                FakeDaoClient.Add(_id, client);
 
                 var json = JsonConvert.SerializeObject(FakeDaoClient);
                 fileJson.WriteLine(json);
 
-                return _id;
+                return _id++;
             }
         }
 
@@ -65,6 +66,14 @@ namespace Epam.Achievement.FakeDAL
 
                 return FakeDaoClient?.Select(x=> x.Value);
             }
+        }
+
+        public Client GetById(int id)
+        {
+            if (GetAll() == null)
+                FakeDaoClient = new Dictionary<int, Client>();
+
+            return FakeDaoClient.Where(x => x.Key == id).FirstOrDefault().Value;
         }
     }
 }

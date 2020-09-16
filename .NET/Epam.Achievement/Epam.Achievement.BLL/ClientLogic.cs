@@ -30,5 +30,10 @@ namespace Epam.Achievement.BLL
         {
             return _clientDao.GetAll();
         }
+
+        public Client GetById(int id)
+        {
+            return _clientDao.GetById(id);
+        }
     }
 }

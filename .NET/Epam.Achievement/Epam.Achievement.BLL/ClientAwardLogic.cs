@@ -19,14 +19,29 @@ namespace Epam.Achievement.BLL
             return _clientAwardDao.Add(idClient, idAward);
         }
 
-        public bool Delete(int id)
+        public ClientAward Delete(int id)
         {
             return _clientAwardDao.Delete(id);
+        }
+
+        public IEnumerable<ClientAward> DeleteByIdAward(int idAward)
+        {
+            return _clientAwardDao.DeleteByIdAward(idAward);
+        }
+
+        public IEnumerable<ClientAward> DeleteByIdClient(int idClient)
+        {
+            return _clientAwardDao.DeleteByIdClient(idClient);
         }
 
         public IEnumerable<ClientAward> GetAll()
         {
             return _clientAwardDao.GetAll();
+        }
+
+        public ClientAward GetById(int id)
+        {
+            return _clientAwardDao.GetById(id);
         }
     }
 }

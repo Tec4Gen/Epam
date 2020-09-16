@@ -1,0 +1,66 @@
+﻿@using Epam.Achievement.Ioc;
+@using Epam.Achievement.BLL.Interface;
+@using Epam.Achievement.Entities;
+@{
+    IAwardLogic _awardLogic = DependenciesResolver.AwardLogic;
+
+    var awards = _awardLogic.GetAll();
+    Layout = "BasePages/_tableView.cshtml";
+    Page.Index = "AwardsTable";
+
+    string message = null;
+    if (IsPost)
+    {
+        string TitleAward = Request["Title"];
+        if (!TitleAward.IsEmpty())
+        {
+            int AwardId = _awardLogic.Add(new Award
+            {
+                Title = TitleAward
+            });
+
+            Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
+        }
+        else
+        {
+            Response.Redirect($"/Pages/Awards.cshtml");
+        }
+    }
+}
+<!DOCTYPE html>
+
+@section AwardsTable {
+
+    @if (Int32.TryParse(Request["AwardId"], out int id))
+    {
+        var award = _awardLogic.GetById(id);
+        message = $"Award: {award.Id} {award.Title} Added";
+    }
+
+    @if (message != null)
+    {
+        <div>@message</div>
+    }
+    <a class="btn btn-primary" href="~/Pages/Add/AddAward.cshtml">Create</a>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+
+        </tr>
+        @if (awards != null)
+        {
+            foreach (var item in awards)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td><img src="" alt="" class="img-thumbnail"> @item.Title</td>
+                    <td><a class="Edit btn" href="~/Pages/EditAward.cshtml?Id=@item.Id&@item.Title">Edit</a></td>
+                    <td><a name="btnD" id ="Delete-@item.Id" class="btn" href="#">Delete</a></td>
+                </tr>
+            }
+        }
+
+
+    </thead>
+}

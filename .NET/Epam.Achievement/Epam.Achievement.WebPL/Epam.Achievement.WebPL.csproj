@@ -102,6 +102,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\ActionDelete.js" />
+    <Content Include="Style\Style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +113,19 @@
     <None Include="packages.config" />
     <Content Include="Pages\BasePages\_tableView.cshtml" />
     <Content Include="Pages\Clients.cshtml" />
+    <Content Include="Pages\EditClientAwardViewClient.cshtml" />
+    <Content Include="Pages\Awards.cshtml" />
+    <Content Include="Pages\ClientAwards.cshtml" />
+    <Content Include="Pages\BasePages\_formActionView.cshtml" />
+    <Content Include="Pages\EditClientAwardViewAward.cshtml" />
+    <Content Include="Pages\EditClient.cshtml" />
+    <Content Include="Pages\EditAward.cshtml" />
+    <Content Include="Pages\BasePages\_addEntities.cshtml" />
+    <Content Include="Pages\Add\AddClient.cshtml" />
+    <Content Include="Pages\Add\AddAward.cshtml" />
+    <Content Include="Pages\Add\AddClientAward.cshtml" />
+    <Content Include="Pages\Redirect\RedirectWithAwardForDelete.cshtml" />
+    <Content Include="Pages\Redirect\RedirectWithClientForDelete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

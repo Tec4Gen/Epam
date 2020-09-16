@@ -28,32 +28,72 @@ namespace Epam.Achievement.FakeDAL
                     IdClient = idClient,
                     IdAchievement = idAward
                 };
-
-                FakeDaoClientAward.Add(_id++, award);
+                award.Id = _id;
+                FakeDaoClientAward.Add(_id, award);
 
                 var json = JsonConvert.SerializeObject(FakeDaoClientAward);
                 fileJson.WriteLine(json);
 
-                return _id;
+                return _id++;
             }
         }
 
-        public bool Delete(int id)
+        public ClientAward Delete(int id)
         {
             if (GetAll() == null)
-                FakeDaoClientAward = new Dictionary<int, ClientAward>();
+                return null;
 
             using (StreamWriter fileJson = new StreamWriter(_path, false))
             {
+                if (!FakeDaoClientAward.Any())
+                    return null;
 
-                if (!FakeDaoClientAward.Any() || !FakeDaoClientAward.Remove(id))
-                    return false;
+                var item = GetById(id);
+
+                if (item == null)
+                    return null;
 
                 var json = JsonConvert.SerializeObject(FakeDaoClientAward);
                 fileJson.WriteLine(json);
 
-                return true;
+                return item;
             }
+        }
+
+        public IEnumerable<ClientAward> DeleteByIdAward(int idAward)
+        {
+            if (GetAll() == null)
+                return null;
+
+            var listIrems = FakeDaoClientAward.Where(x => x.Value.IdAchievement == idAward);
+
+            if (!listIrems.Any())
+                return null;
+
+            foreach (var item in listIrems)
+            {
+                FakeDaoClientAward.Remove(item.Key);
+            }
+
+            return listIrems.Select(x=> x.Value);
+        }
+
+        public IEnumerable<ClientAward> DeleteByIdClient(int idClient)
+        {
+            if (GetAll() == null)
+                return null;
+
+            var listIrems = FakeDaoClientAward.Where(x => x.Value.IdClient == idClient);
+
+            if (!listIrems.Any())
+                return null;
+
+            foreach (var item in listIrems)
+            {
+                FakeDaoClientAward.Remove(item.Key);
+            }
+
+            return listIrems.Select(x => x.Value);
         }
 
         public IEnumerable<ClientAward> GetAll()
@@ -68,5 +108,14 @@ namespace Epam.Achievement.FakeDAL
                 return FakeDaoClientAward?.Select(x => x.Value);
             }
         }
+
+        public ClientAward GetById(int id)
+        {
+            if (GetAll() == null)
+                return null;
+
+            return FakeDaoClientAward.Where(x => x.Key == id).FirstOrDefault().Value;
+        }
+
     }
 }

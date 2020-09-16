@@ -20,7 +20,7 @@ namespace Epam.Achievement.Ioc
 
         public static IAwardLogic AwardLogic => _awardLogic ?? new AwardLogic(_awardDao = new AwardDao());
 
-        public static IClientAwardLogic ClientWaradLogic => _clientAwardLogic ?? new ClientAwardLogic(_clientAwardDao = new ClientAwardDao());
+        public static IClientAwardLogic ClientAwaradLogic => _clientAwardLogic ?? new ClientAwardLogic(_clientAwardDao = new ClientAwardDao());
 
     }
 }

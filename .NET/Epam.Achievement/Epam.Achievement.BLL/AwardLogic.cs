@@ -28,5 +28,10 @@ namespace Epam.Achievement.BLL
         {
             return _awardDao.GetAll();
         }
+
+        public Award GetById(int id)
+        {
+            return _awardDao.GetById(id);
+        }
     }
 }

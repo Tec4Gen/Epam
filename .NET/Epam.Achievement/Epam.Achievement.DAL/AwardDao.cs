@@ -30,12 +30,13 @@ namespace Epam.Achievement.FakeDAL
                
 
                 var pair = new KeyValuePair<int, Award>(_id, Award);
-                FakeDaoAward.Add(_id++, Award);
+                Award.Id = _id;
+                FakeDaoAward.Add(_id, Award);
 
                 var json = JsonConvert.SerializeObject(FakeDaoAward);
                 fileJson.WriteLine(json);
 
-                return _id;
+                return _id++;
             }
         }
 
@@ -69,6 +70,14 @@ namespace Epam.Achievement.FakeDAL
 
                 return FakeDaoAward?.Select(x => x.Value);
             }
+        }
+
+        public Award GetById(int id)
+        {
+            if (GetAll() == null)
+                FakeDaoAward = new Dictionary<int, Award>();
+
+            return FakeDaoAward.Where(x => x.Key == id).FirstOrDefault().Value;
         }
     }
 }
