@@ -1,4 +1,4 @@
-﻿@using Epam.Achievement.Ioc;
+﻿﻿@using Epam.Achievement.Ioc;
 @using Epam.Achievement.BLL.Interface;
 @using Epam.Achievement.Entities;
 @{
@@ -74,14 +74,13 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@client.Name</td>
-                        <td><img src="..." alt="..." class="img-thumbnail"> @award.Title</td>
+                        <td><img src="..." alt="..." class="img-thumbnail">@award.Title</td>
                         <td><a class="Edit Client btn" href="~/Pages/EditClientAwardViewClient.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Client</a></td>
                         <td><a class="Edit Award btn" href="~/Pages/EditClientAwardViewAward.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Award</a></td>
-                        <td><a class="Delete btn" href="~/Pages/Redirect/RedirectDeleteClientAward.cshtml?Id=@item.Id">Delete</a></td>
+                        <td><a class="Delete btn">Delete</a></td>
                     </tr>
                 }
-
             }
-}
-</thead>
+        }
+    </thead>
 }
