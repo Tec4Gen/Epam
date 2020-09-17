@@ -1,0 +1,24 @@
+﻿@using Epam.Achievement.Ioc;
+@using Epam.Achievement.BLL.Interface;
+@{
+    IClientAwardLogic _clientAwardLogic = DependenciesResolver.ClientAwaradLogic;
+    IAwardLogic _awardLogic = DependenciesResolver.AwardLogic;
+}
+<a class="Back btn" href="~/Pages/Awards.cshtml">Back</a>
+
+@if (IsPost)
+{
+    int.TryParse(Request["AwardId"], out int id);
+
+    var cleintAward = _clientAwardLogic.DeleteByIdAward(id);
+    var award = _awardLogic.Delete(id);
+
+    if (cleintAward != null)
+    {
+        foreach (var item in cleintAward)
+        {
+            <div>@item.Id @item.IdAchievement @item.IdClient</div>
+        }
+    }
+
+}

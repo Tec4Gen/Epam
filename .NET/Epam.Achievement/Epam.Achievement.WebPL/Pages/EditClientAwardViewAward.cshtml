@@ -1,0 +1,24 @@
+﻿@using Epam.Achievement.Entities;
+@using Epam.Achievement.Ioc;
+@{
+    Layout = "BasePages/_formActionView.cshtml";
+    Page.Index = "ClientAwardsEditAward";
+
+    var _clientAward = DependenciesResolver.ClientAwaradLogic;
+    int.TryParse(Request["Id"], out int id);
+    var Award = _clientAward.GetById(id);
+}
+
+@section ClientAwardsEditAward
+    {
+    <div class="form-group">
+        <label for="IdRelationship">IdRelationship</label>
+        <input class="form-control" type="text" placeholder="@Award.Id" readonly>
+    </div>
+
+    <div class="form-group">
+        <div for="">Enter new id Award</div>
+        <input type="text" class="form-control" id="IdAward" placeholder="Enter new id award">
+    </div>
+}
+

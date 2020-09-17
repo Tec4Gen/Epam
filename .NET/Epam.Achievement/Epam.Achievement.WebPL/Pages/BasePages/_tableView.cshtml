@@ -1,45 +1,20 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/Style/Style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title></title>
 </head>
 <body>
     <div>
-        <table class="table" id="table">
+
+        <table class="table">
             <tbody>
-                @RenderSection(Page.Index, true)
+                @RenderSection("ClientsTable", true)
             </tbody>
         </table>
     </div>
-
-    <div class="fixed-overlay" id="fixed-overlay">
-        <div class="my__modal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" id ="close" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <form action="/" method="post" id="DeleteAll">
-                            <button id="b__close__edit" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary b__edit">Save</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script type="text/javascript" src="~/Scripts/ActionDelete.js"></script>
-
 </body>
 </html>

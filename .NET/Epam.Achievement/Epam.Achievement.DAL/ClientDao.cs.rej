@@ -1,0 +1,15 @@
+diff a/.NET/Epam.Achievement/Epam.Achievement.DAL/ClientDao.cs b/.NET/Epam.Achievement/Epam.Achievement.DAL/ClientDao.cs	(rejected hunks)
+@@ -67,5 +67,13 @@
+                 return FakeDaoClient?.Select(x=> x.Value);
+             }
+         }
++
++        public Client GetById(int id)
++        {
++            if (GetAll() == null)
++                FakeDaoClient = new Dictionary<int, Client>();
++
++            return FakeDaoClient.Where(x => x.Key == id).FirstOrDefault().Value;
++        }
+     }
+ }

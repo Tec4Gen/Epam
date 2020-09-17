@@ -1,0 +1,22 @@
+﻿@using Epam.Achievement.Ioc;
+@using Epam.Achievement.BLL.Interface;
+@{
+    IClientAwardLogic _clientAwardLogic = DependenciesResolver.ClientAwaradLogic;
+    IClientLogic _client = DependenciesResolver.ClientLogic;
+}
+<a class="Back btn" href="~/Pages/Clients.cshtml">Back</a>
+
+@{
+    int.TryParse(Request["ClientId"], out int id);
+
+    var clientAward = _clientAwardLogic.DeleteByIdClient(id);
+    var client = _client.Delete(id);
+
+    if (clientAward != null)
+    {
+        foreach (var item in clientAward)
+        {
+            <div>@item.Id @item.IdAchievement @item.IdClient</div>
+        }
+    }
+}

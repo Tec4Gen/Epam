@@ -5,52 +5,11 @@
 @{
     Layout = "~/Pages/BasePages/_tableView.cshtml";
     IClientLogic clientLogic = DependenciesResolver.ClientLogic;
+
     var clients = clientLogic.GetAll();
-
-    Page.Index = "ClientsTable";
-
-    string message = null;
-
-    if (IsPost)
-    {
-        if (Int32.TryParse(Request["Age"], out int ClientAge))
-        {
-            var dateParse = Request["Date"].Split('-').Reverse().ToList();
-            string ClientName = Request["Name"];
-            DateTime ClientDate = DateTime.ParseExact($"{dateParse[1]}/{dateParse[0]}/{dateParse[2]}", "MM/dd/yyyy", null);
-
-
-            int ClientId = clientLogic.Add(new Client
-            {
-                Name = ClientName,
-                Age = ClientAge,
-                DataOfBirth = ClientDate
-            });
-
-            Response.Redirect($"/Pages/Clients.cshtml?ClientId={ClientId}");
-        }
-        else
-        {
-            Response.Redirect($"/Pages/Clients.cshtml");
-        }
-    }
 }
 
 @section ClientsTable {
-    @{
-        if (Int32.TryParse(Request["ClientId"], out int id))
-        {
-            var client = clientLogic.GetById(id);
-            message = $"User: {client.Id} {client.Name} {client.Age} {client.DataOfBirth.Date:MM/dd/yyyy} Added";
-        }
-    }
-
-    @if (message != null)
-    {
-        <div>@message</div>
-    }
-
-    <a class="btn btn-primary" href="~/Pages/Add/AddClient.cshtml">Create</a>
     <thead>
         <tr>
             <th>Id</th>
@@ -58,24 +17,19 @@
             <th>Age</th>
             <th>DateOfBirth</th>
         </tr>
-        @if (clients != null)
-         {
-            foreach (var item in clients)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Age</td>
-                    <td>@item.DataOfBirth</td>
-                    <td><a class="Edit btn" href="~/Pages/EditClient.cshtml?Id=@item.Id">Edit</a></td>
-                    <td><a class="Delete-@item.Id" href="~/Pages/Redirect/RedirectWithClientForDelete.cshtml?ClientId=@item.Id">Delete</a></td>
-                </tr>
-            }
-         }
+
+        @foreach (var item in clients)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.DataOfBirth</td>
+            </tr>
+        }
+
     </thead>
 }
-
-
 
 
 
