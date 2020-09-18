@@ -5,6 +5,8 @@
     Layout = "BasePages/_formActionView.cshtml";
 
     Page.Index = "ClientAwardsEditClient";
+
+    Page.Redirect = "ClientAwards.cshtml";
     var _clientAward = DependenciesResolver.ClientAwaradLogic;
     int.TryParse(Request["Id"], out int id);
     var Award = _clientAward.GetById(id);
@@ -16,12 +18,12 @@
 
     <div class="form-group">
         <label for="IdRelationship">IdRelationship</label>
-        <input class="form-control" type="text" placeholder="@Award.Id" readonly>
+        <input name ="Id" class="form-control" type="text" value="@Award.Id" readonly>
     </div>
 
     <div class="form-group">
         <div for="">Enter new id Client</div>
-        <input type="text" class="form-control" id="IdClient" placeholder="Enter new id Client">
+        <input name="ChangeClient" type="text" class="form-control" id="IdClient" placeholder="Enter new id Client">
     </div>
 }
 

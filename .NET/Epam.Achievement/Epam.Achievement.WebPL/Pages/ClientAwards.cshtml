@@ -7,18 +7,59 @@
     IAwardLogic _awardLogic = DependenciesResolver.AwardLogic;
 
     var clientAward = _clientAwardLogic.GetAll();
+
     Layout = "BasePages/_tableView.cshtml";
     Page.Index = "ClientAwardsTable";
+    Page.Action = Request["Action"] ?? "Added";
     string message = null;
 
     if (IsPost)
     {
+        //Edit
+        if (Int32.TryParse(Request["Id"], out int Id) &&
+            Int32.TryParse(Request["ChangeAward"], out int ChangeAwardId))
+        {
+            var _clientAwardUpdate = _clientAwardLogic.GetById(Id);
+
+            if (_awardLogic.GetById(ChangeAwardId) != null)
+            {
+                _clientAwardUpdate.IdAchievement = ChangeAwardId;
+                _clientAwardLogic.Update(_clientAwardUpdate);
+
+                Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={_clientAwardUpdate.Id}&Action=AwardUpdate");
+            }
+            else
+            {
+                Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={_clientAwardUpdate.Id}&Action=ErrorUpdate_AwardNotFonud");
+            }
+        }
+        else if (Int32.TryParse(Request["Id"], out Id) &&
+                 Int32.TryParse(Request["ChangeClient"], out int ChangeClientId))
+        {
+            var _clientAwardUpdate = _clientAwardLogic.GetById(Id);
+
+            if (_clientLogic.GetById(ChangeClientId) != null)
+            {
+
+                _clientAwardUpdate.IdClient = ChangeClientId;
+
+                var a = _clientAwardLogic.Update(_clientAwardUpdate);
+
+                Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={_clientAwardUpdate.Id}&Action=ClientUpdate");
+            }
+            else
+            {
+                Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={_clientAwardUpdate.Id}&Action=ErrorUpdate_ClientNotFonud");
+            }
+        }
+
+
+        //Added
         if (Int32.TryParse(Request["ClientId"], out int ClientId) &&
             Int32.TryParse(Request["AwardId"], out int AwardID))
         {
-
-
             var IdRelationship = _clientAwardLogic.Add(ClientId, AwardID);
+
             Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={IdRelationship}");
         }
         else
@@ -42,7 +83,7 @@
 
                 if (Client != null && Award != null)
                 {
-                    message = $"User: {ClientAward.Id} {Client.Name} {Award.Title} Added";
+                    message = $"Relationship: {ClientAward.Id} {Client.Name} {Award.Title} {Page.Action}";
                 }
                 else
                 {

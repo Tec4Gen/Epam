@@ -4,9 +4,11 @@
 @{
     Layout = "BasePages/_formActionView.cshtml";
     Page.Index = "AwardEdit";
-    var _awardLogic = DependenciesResolver.AwardLogic;
-    int.TryParse(Request["Id"], out int id);
+    Page.Redirect = "Awards.cshtml";
 
+    var _awardLogic = DependenciesResolver.AwardLogic;
+
+    int.TryParse(Request["Id"], out int id);
     var Award = _awardLogic.GetById(id);
 }
 
@@ -14,11 +16,11 @@
     {
     <div class="form-group">
         <label for="AwardId">AwardId</label>
-        <input class="form-control" type="text" placeholder="@Award.Id" readonly>
+        <input name ="IdVariable" class="form-control" type="text" value="@Award.Id" readonly>
     </div>
     <div class="form-group">
-        <label for="AwardTitle">Title</label>
-        <input class="form-control" type="text" placeholder="New title">
+        <label for="AwardTitle">@Award.Title</label>
+        <input name="ChangeTitle" class="form-control" type="text" placeholder="New title">
     </div>
 
     @* Todo pick *@

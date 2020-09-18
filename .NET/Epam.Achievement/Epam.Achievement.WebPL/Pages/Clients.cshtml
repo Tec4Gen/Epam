@@ -4,27 +4,75 @@
 @using Epam.Achievement.Entities;
 @{
     Layout = "~/Pages/BasePages/_tableView.cshtml";
+
     IClientLogic clientLogic = DependenciesResolver.ClientLogic;
     var clients = clientLogic.GetAll();
 
     Page.Index = "ClientsTable";
+    Page.Action = Request["Action"] ?? "Added";
 
     string message = null;
 
+    //method Parse Date
+    DateTime ParseDate(string date)
+    {
+        if (date == null)
+            return new DateTime();
+
+        var dateParse = date.Split('-').Reverse().ToList();
+
+        return DateTime.ParseExact($"{dateParse[1]}/{dateParse[0]}/{dateParse[2]}", "MM/dd/yyyy", null);
+    }
+
     if (IsPost)
     {
+        //Update
+        if (Int32.TryParse(Request["IdVariable"], out int IdVariableClient))
+        {
+            var clientChange = clientLogic.GetById(IdVariableClient);
+
+            if (clientChange!=null)
+            {
+                bool update = false;
+
+                if (!Request["ChangeName"].IsEmpty())
+                {
+                    clientChange.Name = Request["ChangeName"];
+                    update = true;
+                }
+                if (Int32.TryParse(Request["ChangeAge"], out int ChangeAge))
+                {
+                    clientChange.Age = ChangeAge;
+                    update = true;
+                }
+                if (!Request["ChangeDate"].IsEmpty())
+                {
+                    clientChange.DataOfBirth = ParseDate(Request["ChangeDate"]);
+                    update = true;
+                }
+                var ClientId = clientLogic.Update(clientChange);
+
+                if (update)
+                {
+                    Response.Redirect($"/Pages/Clients.cshtml?ClientId={ClientId.Id}&Action=Update");
+                }
+
+                Response.Redirect($"/Pages/Clients.cshtml?ClientId={ClientId.Id}&Action=ErrorUpdate");
+
+            }
+        }
+
+        //Added
         if (Int32.TryParse(Request["Age"], out int ClientAge))
         {
-            var dateParse = Request["Date"].Split('-').Reverse().ToList();
+            var dateParse = ParseDate(Request["Date"]);
             string ClientName = Request["Name"];
-
-            DateTime ClientDate = DateTime.ParseExact($"{dateParse[1]}/{dateParse[0]}/{dateParse[2]}", "MM/dd/yyyy", null);
 
             int ClientId = clientLogic.Add(new Client
             {
                 Name = ClientName,
                 Age = ClientAge,
-                DataOfBirth = ClientDate
+                DataOfBirth = dateParse
             });
 
             Response.Redirect($"/Pages/Clients.cshtml?ClientId={ClientId}");
@@ -41,7 +89,7 @@
         if (Int32.TryParse(Request["ClientId"], out int id))
         {
             var client = clientLogic.GetById(id);
-            message = $"User: {client.Id} {client.Name} {client.Age} {client.DataOfBirth.Date:MM/dd/yyyy} Added";
+            message = $"User: {client.Id} {client.Name} {client.Age} {client.DataOfBirth.Date:MM/dd/yyyy} {Page.Action}";
         }
     }
 
@@ -72,6 +120,5 @@
                 </tr>
             }
         }
-
     </thead>
 }

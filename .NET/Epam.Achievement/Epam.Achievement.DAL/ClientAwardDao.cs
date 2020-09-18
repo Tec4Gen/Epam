@@ -147,6 +147,7 @@ namespace Epam.Achievement.FakeDAL
                     return null;
 
                 FakeDaoClientAward[clientAward.Id] = clientAward;
+
                 var json = JsonConvert.SerializeObject(FakeDaoClientAward);
                 fileJson.WriteLine(json);
 

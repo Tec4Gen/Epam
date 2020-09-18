@@ -2,21 +2,42 @@
 @using Epam.Achievement.BLL.Interface;
 @using Epam.Achievement.Entities;
 @{
-    IAwardLogic _awardLogic = DependenciesResolver.AwardLogic;
-
-    var awards = _awardLogic.GetAll();
     Layout = "BasePages/_tableView.cshtml";
+
+    IAwardLogic _awardLogic = DependenciesResolver.AwardLogic;
+    var awards = _awardLogic.GetAll();
+
     Page.Index = "AwardsTable";
+    Page.Action = Request["Action"] ?? "Added";
 
     string message = null;
+
     if (IsPost)
     {
-        string TitleAward = Request["Title"];
-        if (!TitleAward.IsEmpty())
+        //Update
+        if (Int32.TryParse(Request["IdVariable"], out int IdVariableAwsard))
+        {
+            var awardChange = _awardLogic.GetById(IdVariableAwsard);
+
+            if (!Request["ChangeTitle"].IsEmpty())
+            {
+                awardChange.Title = Request["ChangeTitle"];
+                _awardLogic.Update(awardChange);
+
+                Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=Update");
+            }
+            else
+            {
+                Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=ErrorUpdate");
+            }
+        }
+
+        //Added
+        if (!Request["Title"].IsEmpty())
         {
             int AwardId = _awardLogic.Add(new Award
             {
-                Title = TitleAward
+                Title = Request["Title"]
             });
 
             Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
@@ -34,7 +55,7 @@
     @if (Int32.TryParse(Request["AwardId"], out int id))
     {
         var award = _awardLogic.GetById(id);
-        message = $"Award: {award.Id} {award.Title} Added";
+        message = $"Award: {award.Id} {award.Title} {Page.Action}";
     }
 
     @if (message != null)
@@ -55,7 +76,7 @@
                 <tr>
                     <td>@item.Id</td>
                     <td><img src="" alt="" class="img-thumbnail"> @item.Title</td>
-                    <td><a class="Edit btn" href="~/Pages/EditAward.cshtml?Id=@item.Id&@item.Title">Edit</a></td>
+                    <td><a class="Edit btn" href="~/Pages/EditAward.cshtml?Id=@item.Id">Edit</a></td>
                     <td><a name="btnD" id="Delete-@item.Id" class="btn" href="#">Delete</a></td>
                 </tr>
             }
