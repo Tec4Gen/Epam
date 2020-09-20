@@ -11,14 +11,30 @@ namespace Backupper.Common.Dependencies
 {
     public static class DependenciesResolver
     {
-        private static IFilesDao _filesDao { get; set; } = new FilesDao();
+        private static IFilesDao _filesDao;
+        private static IFilesLogic _filesLogic;
+        private static IBackupDao _backupDao;
+        private static IBackupLogic _backupLogic;
+        private static IHandlerEvent _handleEvent;
 
-        public static IFilesLogic FilesLogic { get; set; } = new FilesLogic(_filesDao);
+        public static IFilesLogic FilesLogic { get 
+            {  
+                if (_filesLogic != null)
+                {
+                    return _filesLogic;
+                }
 
-        private static IBackupDao _backupDao { get; set; } = new BackupDao();
+                if (_filesDao == null) // Можно вынести в отдельный метод GetFilesDao
+                {
+                    _filesDao = new FilesDao();
+                }
 
+                return new FilesLogic(_filesDao);
+            } 
+        }
+
+        // Остальное по аналогии.
         public static IBackupLogic BackupLogic { get; set; } = new BackupLogic(_backupDao);
-
         public static IHandlerEvent HandlerEvent { get; set; } = new HandlerEvent();
 
     }
