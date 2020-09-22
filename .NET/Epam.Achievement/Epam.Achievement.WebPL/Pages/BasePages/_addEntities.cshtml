@@ -16,7 +16,7 @@
 <body>
     <div>
         <div class="container__form">
-            <form action="~/Pages/@path" method="post">
+            <form action="~/Pages/@path" method="post" enctype="multipart/form-data">
                 @RenderSection(Page.Index)
                 <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </form>

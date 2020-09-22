@@ -1,6 +1,7 @@
 ﻿@using Epam.Achievement.Ioc;
 @using Epam.Achievement.BLL.Interface;
 @using Epam.Achievement.Entities;
+@using System.Threading;
 @{
     Layout = "BasePages/_tableView.cshtml";
 
@@ -18,33 +19,72 @@
         if (Int32.TryParse(Request["IdVariable"], out int IdVariableAwsard))
         {
             var awardChange = _awardLogic.GetById(IdVariableAwsard);
+            bool flag = false;
+            var avatar = WebImage.GetImageFromRequest();
+            byte[] img = avatar?.GetBytes() ?? null;
 
-            if (!Request["ChangeTitle"].IsEmpty())
+            try
             {
-                awardChange.Title = Request["ChangeTitle"];
-                _awardLogic.Update(awardChange);
+                if (!Request["ChangeTitle"].IsEmpty())
+                {
+                    awardChange.Title = Request["ChangeTitle"];
+                    flag = true;
+                }
+                if (img != null)
+                {
+                    awardChange.Image = img;
+                    flag = true;
+                }
 
-                Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=Update");
+                if (flag)
+                {
+                    _awardLogic.Update(awardChange);
+                    Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=Update");
+                    return;
+                }
+
             }
-            else
+            catch (ThreadAbortException ex)
             {
-                Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=ErrorUpdate");
+                return;
             }
+
+            Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=ErrorUpdate");
         }
 
         //Added
         if (!Request["Title"].IsEmpty())
         {
-            int AwardId = _awardLogic.Add(new Award
-            {
-                Title = Request["Title"]
-            });
+            var avatar = WebImage.GetImageFromRequest();
+            byte[] img = null;
 
-            Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
+            int AwardId;
+            if (avatar != null)
+            {
+                img = avatar.GetBytes();
+            }
+            try
+            {
+                AwardId = _awardLogic.Add(new Award
+                {
+                    Title = Request["Title"],
+                    Image = img
+                });
+                Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
+            }
+            catch (ThreadAbortException ex)
+            {
+                return;
+            }
+            catch
+            {
+
+                Response.Redirect($"/Pages/Awards.cshtml&Action=ErrorAdd");
+            }
         }
         else
         {
-            Response.Redirect($"/Pages/Awards.cshtml");
+            Response.Redirect($"/Pages/Awards.cshtml&Action=ErrorAdd");
         }
     }
 }
@@ -57,7 +97,10 @@
         var award = _awardLogic.GetById(id);
         message = $"Award: {award.Id} {award.Title} {Page.Action}";
     }
+    else 
+    {
 
+    }
     @if (message != null)
     {
         <div>@message</div>
@@ -75,7 +118,14 @@
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td><img src="" alt="" class="img-thumbnail"> @item.Title</td>
+                    @if (item.Image != null)
+                    {
+                        <td><img style='width:60px; height:60px;' src="data:image;base64,@System.Convert.ToBase64String(item.Image)" alt="..." class="img-thumbnail">@item.Title</td>
+                    }
+                    else
+                    {
+                        <td><img style='width:60px; height:60px;' src="~/Image/Billy.png" alt="..." class="img-thumbnail">@item.Title</td>
+                    }
                     <td><a class="Edit btn" href="~/Pages/EditAward.cshtml?Id=@item.Id">Edit</a></td>
                     <td><a name="btnD" id="Delete-@item.Id" class="btn" href="#">Delete</a></td>
                 </tr>

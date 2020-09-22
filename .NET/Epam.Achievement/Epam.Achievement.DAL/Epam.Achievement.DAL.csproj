@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21C69E1B-F363-480F-A47A-2BB535EC78EA}</ProjectGuid>
+    <ProjectGuid>{37B8D331-B0BA-46A6-8A52-AE3DE6268DED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Epam.Achievement.BLL</RootNamespace>
-    <AssemblyName>Epam.Achievement.BLL</AssemblyName>
+    <RootNamespace>Epam.Achievement.DAL</RootNamespace>
+    <AssemblyName>Epam.Achievement.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,21 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwardLogic.cs" />
-    <Compile Include="ClientAwardLogic.cs" />
-    <Compile Include="ClientLogic.cs" />
+    <Compile Include="AwardDao.cs" />
+    <Compile Include="ClientAwardDao.cs" />
+    <Compile Include="ClientDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Epam.Achievement.BLL.Interface\Epam.Achievement.BLL.Interface.csproj">
-      <Project>{e33708de-2a1d-40e7-8e4f-b59c6a520aca}</Project>
-      <Name>Epam.Achievement.BLL.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Epam.Achievement.DAL.Interface\Epam.Achievement.DAL.Interface.csproj">
-      <Project>{35e8c44d-eda8-4cbd-b7a5-a7a060e3e77a}</Project>
+      <Project>{35E8C44D-EDA8-4CBD-B7A5-A7A060E3E77A}</Project>
       <Name>Epam.Achievement.DAL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epam.Achievement.Entities\Epam.Achievement.Entities.csproj">

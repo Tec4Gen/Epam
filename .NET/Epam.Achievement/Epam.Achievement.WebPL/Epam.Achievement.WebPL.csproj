@@ -107,6 +107,9 @@
     <Content Include="Pages\Redirect\RedirectDeleteClientAward.cshtml" />
     <Content Include="Pages\Redirect\RedirectWithAwardForDelete.cshtml" />
     <Content Include="Pages\Redirect\RedirectWithClientForDelete.cshtml" />
+    <Content Include="Pages\Add\AddAward.cshtml" />
+    <Content Include="Pages\Add\AddClient.cshtml" />
+    <Content Include="Pages\Add\AddClientAward.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -131,6 +134,9 @@
       <Project>{3cf6c897-9afe-4992-915c-9dcdd83d37fa}</Project>
       <Name>Epam.Achievement.Ioc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

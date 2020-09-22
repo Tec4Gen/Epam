@@ -1,114 +1,214 @@
 ﻿using Epam.Achievement.DAL.Interface;
 using Epam.Achievement.Entities;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
 
-
-namespace Epam.Achievement.FakeDAL
+namespace Epam.Achievement.DAL
 {
     public class AwardDao: IAwardDao
     {
-        private string _path = ConfigurationManager.AppSettings.Get("Awards");
-
-        private Dictionary<int, Award> FakeDaoAward;
-        private int _id;
+        private string _connectionString = ConfigurationManager.ConnectionStrings["AchievementBase"].ConnectionString;
 
         public int Add(Award award)
         {
-            if (award == null)
-                throw new ArgumentNullException();
-
-            if (GetAll() == null)
-                FakeDaoAward = new Dictionary<int, Award>();
-
-            using (StreamWriter fileJson = new StreamWriter(_path, false))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-               
+                var command = connection.CreateCommand();
 
-                var pair = new KeyValuePair<int, Award>(_id, award);
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "[dbo].[Sp_InsertAward]";
 
-                if (FakeDaoAward.Any())
+                SqlParameter ParameterDirectionId = new SqlParameter 
                 {
-                    award.Id = FakeDaoAward.Select(x => x.Key).Max();
-                    _id = ++award.Id;
-                }
-               
+                    DbType = DbType.Int32,
+                    ParameterName = "@Id",
+                    Value = award.Id,
+                    Direction = ParameterDirection.Output
+                };
+                command.Parameters.Add(ParameterDirectionId);
+                
+                SqlParameter ParameterTitle = new SqlParameter
+                {
+                    DbType = DbType.String,
+                    ParameterName = "@Title",
+                    Value = award.Title,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterTitle);
 
-                FakeDaoAward.Add(_id, award);
+                SqlParameter ParameterImage = new SqlParameter 
+                {
+                    DbType = DbType.Binary,
+                    ParameterName = "@Iamage",
+                    Value = award.Image,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterImage);
 
-                var json = JsonConvert.SerializeObject(FakeDaoAward);
-                fileJson.WriteLine(json);
+                connection.Open();
 
-                return _id++;
+                command.ExecuteNonQuery();
+
+            
+                return (int)ParameterDirectionId.Value;
+                
             }
         }
 
         public Award Delete(int id)
         {
-            if (GetAll() == null)
-                FakeDaoAward = new Dictionary<int, Award>();
-
-            var item = GetById(id);
-            using (StreamWriter fileJson = new StreamWriter(_path, false))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                if (!FakeDaoAward.Any())
-                    return null;
+                var command = connection.CreateCommand();
 
-                if (item == null)
-                    return null;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "[dbo].[Sp_DeleteAward]";
 
-                FakeDaoAward.Remove(id);
-                var json = JsonConvert.SerializeObject(FakeDaoAward);
-                fileJson.WriteLine(json);
+                SqlParameter ParameterId = new SqlParameter
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@Id",
+                    Value = id,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterId);
 
-                return item;
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read()) 
+                {
+                    return new Award 
+                    {
+                        Id = (int)reader["Id"],
+                        Title = reader["Title"] as string,
+                        Image = reader["Image"] as byte[]
+                    };
+                }
+
+                return null;
+
             }
         }
 
         public IEnumerable<Award> GetAll()
         {
-            using (StreamReader fileJson = new StreamReader(_path))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                var stringJson = fileJson.ReadToEnd();
-                //yield ??77?
-                FakeDaoAward = JsonConvert.DeserializeObject<Dictionary<int, Award>>(stringJson);
-                _id = FakeDaoAward?.Count() ?? 0;
+                var command = connection.CreateCommand();
 
-                return FakeDaoAward?.Select(x => x.Value);
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "[dbo].[Sp_GetAllAward]";
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                var awards = new List<Award>();
+
+                while (reader.Read())
+                {
+                    awards.Add(new Award 
+                    {
+                        Id = (int)reader["Id"],
+                        Title = reader["Title"] as string,
+                        Image = reader["Image"] as byte[]
+                    });
+                }
+
+                return awards;
             }
         }
 
         public Award GetById(int id)
         {
-            if (GetAll() == null)
-                FakeDaoAward = new Dictionary<int, Award>();
+            using (SqlConnection connection =  new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
 
-            return FakeDaoAward.Where(x => x.Key == id).FirstOrDefault().Value;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "[dbo].[Sp_GetAwardById]";
+
+                SqlParameter ParameterId = new SqlParameter
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@Id",
+                    Value = id,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterId);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read()) 
+                {
+                    return new Award
+                    {
+                        Id = (int)reader["Id"],
+                        Title = reader["Title"] as string,
+                        Image = reader["Image"] as byte[]
+                    };
+                }
+                return null;
+            }
         }
 
         public Award Update(Award award)
         {
-            if (GetAll() == null)
-                FakeDaoAward = new Dictionary<int, Award>();
-
-            var item = GetById(award.Id);
-            using (StreamWriter fileJson = new StreamWriter(_path, false))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                if (!FakeDaoAward.Any())
-                    return null;
+                var command = connection.CreateCommand();
 
-                if (item == null)
-                    return null;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "[dbo].[Sp_UpdateAward]";
 
-                FakeDaoAward[award.Id] = award;
-                var json = JsonConvert.SerializeObject(FakeDaoAward);
-                fileJson.WriteLine(json);
+                SqlParameter ParameterId = new SqlParameter
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@Id",
+                    Value = award.Id,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterId);
 
-                return item;
+                SqlParameter ParameterTitle = new SqlParameter
+                {
+                    DbType = DbType.String,
+                    ParameterName = "@title",
+                    Value = award.Id,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterTitle);
+
+                SqlParameter ParameterImage = new SqlParameter
+                {
+                    DbType = DbType.Binary,
+                    ParameterName = "@Image",
+                    Value = award.Image,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterImage);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new Award 
+                    {
+                        Id = (int)reader["Id"],
+                        Title = reader["Title"] as string,
+                        Image = reader["Image"] as byte[]
+                    };
+                }
+                return null;
+
             }
         }
     }

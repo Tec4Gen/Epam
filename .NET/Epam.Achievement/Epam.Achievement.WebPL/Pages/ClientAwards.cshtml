@@ -115,7 +115,14 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@client.Name</td>
-                        <td><img src="..." alt="..." class="img-thumbnail">@award.Title</td>
+                        @if (award.Image != null)
+                        {
+                            <td><img style='width:60px; height:60px;' src="data:image;base64,@System.Convert.ToBase64String(award.Image)" alt="..." class="img-thumbnail">@award.Title</td>
+                        }
+                        else
+                        {
+                            <td><img style='width:60px; height:60px;' src="~/Image/Billy.png" alt="..." class="img-thumbnail">@award.Title</td>
+                        }
                         <td><a class="Edit Client btn" href="~/Pages/EditClientAwardViewClient.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Client</a></td>
                         <td><a class="Edit Award btn" href="~/Pages/EditClientAwardViewAward.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Award</a></td>
                         <td><a class="Delete btn">Delete</a></td>

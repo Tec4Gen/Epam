@@ -57,10 +57,6 @@
       <Project>{35E8C44D-EDA8-4CBD-B7A5-A7A060E3E77A}</Project>
       <Name>Epam.Achievement.DAL.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epam.Achievement.DAL\Epam.Achievement.FakeDAL.csproj">
-      <Project>{2A8AD47A-CB36-4210-ABDF-B4FCF12E3618}</Project>
-      <Name>Epam.Achievement.FakeDAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
