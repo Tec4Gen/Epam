@@ -31,7 +31,7 @@
         {
             var clientChange = clientLogic.GetById(IdVariableClient);
 
-            if (clientChange!=null)
+            if (clientChange != null)
             {
                 bool update = false;
 
@@ -97,28 +97,45 @@
     {
         <div>@message</div>
     }
-
-    <a class="btn btn-primary" href="~/Pages/Add/AddClient.cshtml">Create</a>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>DateOfBirth</th>
-        </tr>
-        @if (clients != null)
-        {
-            foreach (var item in clients)
+    @if (User.IsInRole("Admin") || User.IsInRole("Member"))
+    {
+        <a href="~/Pages/SingOut.cshtml">SignOut</a>
+    }
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" href="~/Pages/Add/AddClient.cshtml">Create</a>
+    }
+    @if (User.IsInRole("Admin") || User.IsInRole("Member"))
+    {
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DateOfBirth</th>
+            </tr>
+            @if (clients != null)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Age</td>
-                    <td>@item.DataOfBirth</td>
-                    <td><a class="Edit btn" href="~/Pages/EditClient.cshtml?Id=@item.Id">Edit</a></td>
-                    <td><a class="Delete-@item.Id" href="~/Pages/Redirect/RedirectWithClientForDelete.cshtml?ClientId=@item.Id">Delete</a></td>
-                </tr>
+                foreach (var item in clients)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Age</td>
+                        <td>@item.DataOfBirth</td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td><a class="Edit btn" href="~/Pages/EditClient.cshtml?Id=@item.Id">Edit</a></td>
+                            <td><a class="Delete-@item.Id" href="~/Pages/Redirect/RedirectWithClientForDelete.cshtml?ClientId=@item.Id">Delete</a></td>
+                        }
+                    </tr>
+                }
             }
-        }
-    </thead>
+        </thead>
+    }
+    else
+    {
+        <div class="alert-info">Hello, guest! Log in to view the lists of people and awards</div>
+        <a href="~/Pages/SingIn.cshtml">Login</a>
+    }
 }

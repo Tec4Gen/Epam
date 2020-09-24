@@ -99,38 +99,57 @@
     {
         <div>@message</div>
     }
-    <a class="btn btn-primary" href="~/Pages/Add/AddClientAward.cshtml">Reward player</a>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Client</th>
-            <th>Award</th>
-        </tr>
-        @if (clientAward != null)
-        {
-            foreach (var item in clientAward)
+    @if (User.IsInRole("Admin") || User.IsInRole("Member"))
+    {
+        <a href="~/Pages/SingOut.cshtml">SignOut</a>
+    }
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" href="~/Pages/Add/AddClientAward.cshtml">Reward player</a>
+    }
+    @if (User.IsInRole("Admin") || User.IsInRole("Member"))
+    {
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Client</th>
+                <th>Award</th>
+            </tr>
+            @if (clientAward != null)
             {
-                var client = _clientLogic.GetById(@item.IdClient);
-                var award = _awardLogic.GetById(@item.IdAchievement);
-                if (client != null && award != null)
+                foreach (var item in clientAward)
                 {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@client.Name</td>
-                        @if (award.Image != null)
-                        {
-                            <td><img style='width:60px; height:60px;' src="data:image;base64,@System.Convert.ToBase64String(award.Image)" alt="..." class="img-thumbnail">@award.Title</td>
-                        }
-                        else
-                        {
-                            <td><img style='width:60px; height:60px;' src="~/Image/Billy.png" alt="..." class="img-thumbnail">@award.Title</td>
-                        }
-                        <td><a class="Edit Client btn" href="~/Pages/EditClientAwardViewClient.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Client</a></td>
-                        <td><a class="Edit Award btn" href="~/Pages/EditClientAwardViewAward.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Award</a></td>
-                        <td><a class="Delete btn" href="~/Pages/Redirect/RedirectDeleteClientAward.cshtml?Id=@item.Id">Delete</a></td>
-                    </tr>
+                    var client = _clientLogic.GetById(@item.IdClient);
+                    var award = _awardLogic.GetById(@item.IdAchievement);
+                    if (client != null && award != null)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@client.Name</td>
+                            @if (award.Image != null)
+                            {
+                                <td><img style='width:60px; height:60px;' src="data:image;base64,@System.Convert.ToBase64String(award.Image)" alt="..." class="img-thumbnail">@award.Title</td>
+                            }
+                            else
+                            {
+                                <td><img style='width:60px; height:60px;' src="~/Image/Billy.png" alt="..." class="img-thumbnail">@award.Title</td>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <td><a class="Edit Client btn" href="~/Pages/EditClientAwardViewClient.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Client</a></td>
+                                <td><a class="Edit Award btn" href="~/Pages/EditClientAwardViewAward.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Award</a></td>
+                                <td><a class="Delete btn" href="~/Pages/Redirect/RedirectDeleteClientAward.cshtml?Id=@item.Id">Delete</a></td>
+                            }
+                        </tr>
+                    }
                 }
             }
-        }
-    </thead>
+        </thead>
+    }
+    else
+    {
+        <div class="alert-info">Hello, guest! Log in to view the lists of people and awards</div>
+        <a href="~/Pages/SingIn.cshtml">Login</a>
+    }
+}
 }

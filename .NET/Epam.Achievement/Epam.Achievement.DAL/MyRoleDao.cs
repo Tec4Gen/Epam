@@ -53,7 +53,7 @@ namespace Epam.Achievement.DAL
                 var commnad = connection.CreateCommand();
 
                 commnad.CommandType = CommandType.StoredProcedure;
-                commnad.CommandText = "[dbo].[Sp_GetRole]";
+                commnad.CommandText = "[dbo].[Sp_GetAllRole]";
 
                 connection.Open();
 

@@ -20,7 +20,7 @@ namespace Epam.Achievement.DAL
                 var commnad = connection.CreateCommand();
 
                 commnad.CommandType = CommandType.StoredProcedure;
-                commnad.CommandText = "[dbo].[Sp_GetRole]";
+                commnad.CommandText = "[dbo].[Sp_CheckUser]";
 
                 SqlParameter ParameterUserName = new SqlParameter
                 {
@@ -43,10 +43,14 @@ namespace Epam.Achievement.DAL
                 connection.Open();
 
                 var reader = commnad.ExecuteReader();
-                if (user == reader["Login"] as string && password == reader["Password"] as string)
+                if (reader.Read())
                 {
-                    return true;
+                    if (user == reader["Login"] as string && password == reader["Password"] as string)
+                    {
+                        return true;
+                    }
                 }
+
 
                 return false;
             }

@@ -65,7 +65,7 @@
             });
             Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
 
-            
+
         }
         else
         {
@@ -87,31 +87,50 @@
     {
         <div>@message</div>
     }
-    <a class="btn btn-primary" href="~/Pages/Add/AddAward.cshtml">Create</a>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
+    @if (User.IsInRole("Admin") || User.IsInRole("Member"))
+    {
+        <a href="~/Pages/SingOut.cshtml">SignOut</a>
+    }
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" href="~/Pages/Add/AddAward.cshtml">Create</a>
+    }
+    @if (User.IsInRole("Admin"))
+    {
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
 
-        </tr>
-        @if (awards != null)
-        {
-            foreach (var item in awards)
+            </tr>
+            @if (awards != null)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    @if (item.Image != null)
-                    {
-                        <td><img style='width:60px; height:60px;' src="data:image;base64,@System.Convert.ToBase64String(item.Image)" alt="..." class="img-thumbnail">@item.Title</td>
-                    }
-                    else
-                    {
-                        <td><img style='width:60px; height:60px;' src="~/Image/Billy.png" alt="..." class="img-thumbnail">@item.Title</td>
-                    }
-                    <td><a class="Edit btn" href="~/Pages/EditAward.cshtml?Id=@item.Id">Edit</a></td>
-                    <td><a name="btnD" id="Delete-@item.Id" class="btn" href="#">Delete</a></td>
-                </tr>
+                foreach (var item in awards)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        @if (item.Image != null)
+                        {
+                            <td><img style='width:60px; height:60px;' src="data:image;base64,@System.Convert.ToBase64String(item.Image)" alt="..." class="img-thumbnail">@item.Title</td>
+                        }
+                        else
+                        {
+                            <td><img style='width:60px; height:60px;' src="~/Image/Billy.png" alt="..." class="img-thumbnail">@item.Title</td>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td><a class="Edit btn" href="~/Pages/EditAward.cshtml?Id=@item.Id">Edit</a></td>
+                            <td><a name="btnD" id="Delete-@item.Id" class="btn" href="#">Delete</a></td>
+                        }
+                    </tr>
+                }
             }
-        }
-    </thead>
+        </thead>
+    }
+    else
+    {
+        <div class="alert-info">Hello, guest! Log in to view the lists of people and awards</div>
+        <a href="~/Pages/SingIn.cshtml">Login</a>
+    }
+}
 }

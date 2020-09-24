@@ -11,7 +11,7 @@
         if (checkuser.CanLogin(login, password))
         {
             FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
-            Response.Redirect("/");
+            Response.Redirect("~/Pages/Index.cshtml");
         }
     }
 }

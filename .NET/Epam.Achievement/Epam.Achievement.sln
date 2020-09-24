@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{4669691D-A6F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Achievement.Ioc", "Epam.Achievement.Ioc\Epam.Achievement.Ioc.csproj", "{3CF6C897-9AFE-4992-915C-9DCDD83D37FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Achievement.WebPL", "Epam.Achievement.WebPL\Epam.Achievement.WebPL.csproj", "{57110D0F-0FD6-460B-B432-B473F04C9BFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPL", "Epam.Achievement.WebPL\WebPL.csproj", "{57110D0F-0FD6-460B-B432-B473F04C9BFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Achievement.DAL", "Epam.Achievement.DAL\Epam.Achievement.DAL.csproj", "{37B8D331-B0BA-46A6-8A52-AE3DE6268DED}"
 EndProject

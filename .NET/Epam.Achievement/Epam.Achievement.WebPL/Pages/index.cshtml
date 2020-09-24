@@ -10,10 +10,32 @@
     <title></title>
 </head>
 <body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="alert-info">Hello, @User.Identity.Name</div>
+    }
+    else
+    {
+        <div class="alert-info">Hello, guest! Log in to view the lists of people and awards</div>
+    }
     <div>
-        <a href="~/Pages/Clients.cshtml">Client</a>>
-        <a href="~/Pages/Awards.cshtml">Award</a>>
-        <a href="~/Pages/ClientAwards.cshtml">CleintAward</a>>
+        @if ((User.IsInRole("Admin") || User.IsInRole("Member")))
+        {
+            <a href="~/Pages/Clients.cshtml">Client</a>
+            <a href="~/Pages/Awards.cshtml">Award</a>
+            <a href="~/Pages/ClientAwards.cshtml">CleintAward</a>
+        }
+        @if ((User.IsInRole("Admin") || User.IsInRole("Member")))
+        {
+            <a href="~/Pages/SingOut.cshtml">SignOut</a>
+        }
+        else
+        {
+            <a href="~/Pages/SingIn.cshtml">Login</a>
+
+        }
+
+
     </div>
 </body>
 </html>

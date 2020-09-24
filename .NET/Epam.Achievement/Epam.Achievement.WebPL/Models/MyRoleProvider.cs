@@ -6,23 +6,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace Epam.Achievement.WebPL.Pages.Model
+namespace WebPL.Model
 {
     public class MyRoleProvider : RoleProvider
     {
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        IMyRoleLogic myrole = DependenciesResolver.MyRoleLogic;
+        IMyRoleLogic myRole = DependenciesResolver.MyRoleLogic;
 
         public override bool IsUserInRole(string username, string roleName)
         {
-            return myrole.IsUserInRole(username, roleName);
+            return myRole.IsUserInRole(username, roleName);
         }
 
         public override string[] GetRolesForUser(string username)
         {
-            return myrole.GetRolesForUser(username);
+            return myRole.GetRolesForUser(username);
         }
+
         #region NOT IMPLEMENTED
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
