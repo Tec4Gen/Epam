@@ -8,30 +8,30 @@ namespace Epam.Achievement.Ioc
 {
     public static class DependenciesResolver
     {
-        private static IClientDao _clientDao;
+        private static IClientDao _clientDao = new ClientDao();
         private static IClientLogic _clientLogic;
 
-        private static IAwardDao _awardDao;
+        private static IAwardDao _awardDao = new AwardDao();
         private static IAwardLogic _awardLogic;
 
-        private static IClientAwardDao _clientAwardDao;
+        private static IClientAwardDao _clientAwardDao = new ClientAwardDao();
         private static IClientAwardLogic _clientAwardLogic;
 
-        private static IMyRoleDao _myRoleDao;
+        private static IMyRoleDao _myRoleDao = new MyRoleDao();
         private static IMyRoleLogic _myRoleLogic;
 
-        private static IAuthDao _authDao;
+        private static IAuthDao _authDao = new AuthDao();
         private static IAuthLogic _authLogic;
 
-        public static IClientLogic ClientLogic => _clientLogic ?? new ClientLogic(_clientDao = new ClientDao());
+        public static IClientLogic ClientLogic => _clientLogic ?? new ClientLogic(_clientDao);
 
-        public static IAwardLogic AwardLogic => _awardLogic ?? new AwardLogic(_awardDao = new AwardDao());
+        public static IAwardLogic AwardLogic => _awardLogic ?? new AwardLogic(_awardDao);
 
-        public static IClientAwardLogic ClientAwaradLogic => _clientAwardLogic ?? new ClientAwardLogic(_clientAwardDao = new ClientAwardDao());
+        public static IClientAwardLogic ClientAwaradLogic => _clientAwardLogic ?? new ClientAwardLogic(_clientAwardDao);
 
-        public static IMyRoleLogic MyRoleLogic => _myRoleLogic ?? new MyRoleLogic(_myRoleDao = new MyRoleDao());
+        public static IMyRoleLogic MyRoleLogic => _myRoleLogic ?? new MyRoleLogic(_myRoleDao);
 
-        public static IAuthLogic AuthDao => _authLogic ?? new AuthLogic(_authDao = new AuthDao());
+        public static IAuthLogic AuthDao => _authLogic ?? new AuthLogic(_authDao);
 
     }
 }
