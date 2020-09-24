@@ -23,31 +23,25 @@
             var avatar = WebImage.GetImageFromRequest();
             byte[] img = avatar?.GetBytes() ?? null;
 
-            try
+
+            if (!Request["ChangeTitle"].IsEmpty())
             {
-                if (!Request["ChangeTitle"].IsEmpty())
-                {
-                    awardChange.Title = Request["ChangeTitle"];
-                    flag = true;
-                }
-                if (img != null)
-                {
-                    awardChange.Image = img;
-                    flag = true;
-                }
-
-                if (flag)
-                {
-                    _awardLogic.Update(awardChange);
-                    Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=Update");
-                    return;
-                }
-
+                awardChange.Title = Request["ChangeTitle"];
+                flag = true;
             }
-            catch (ThreadAbortException ex)
+            if (img != null)
             {
+                awardChange.Image = img;
+                flag = true;
+            }
+
+            if (flag)
+            {
+                _awardLogic.Update(awardChange);
+                Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=Update");
                 return;
             }
+
 
             Response.Redirect($"/Pages/Awards.cshtml?AwardId={awardChange.Id}&Action=ErrorUpdate");
         }
@@ -63,28 +57,19 @@
             {
                 img = avatar.GetBytes();
             }
-            try
-            {
-                AwardId = _awardLogic.Add(new Award
-                {
-                    Title = Request["Title"],
-                    Image = img
-                });
-                Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
-            }
-            catch (ThreadAbortException ex)
-            {
-                return;
-            }
-            catch
-            {
 
-                Response.Redirect($"/Pages/Awards.cshtml&Action=ErrorAdd");
-            }
+            AwardId = _awardLogic.Add(new Award
+            {
+                Title = Request["Title"],
+                Image = img
+            });
+            Response.Redirect($"/Pages/Awards.cshtml?AwardId={AwardId}");
+
+            
         }
         else
         {
-            Response.Redirect($"/Pages/Awards.cshtml&Action=ErrorAdd");
+            Response.Redirect($"/Pages/Awards.cshtml?Action=ErrorAdd");
         }
     }
 }
@@ -97,10 +82,7 @@
         var award = _awardLogic.GetById(id);
         message = $"Award: {award.Id} {award.Title} {Page.Action}";
     }
-    else 
-    {
 
-    }
     @if (message != null)
     {
         <div>@message</div>
@@ -131,7 +113,5 @@
                 </tr>
             }
         }
-
-
     </thead>
 }

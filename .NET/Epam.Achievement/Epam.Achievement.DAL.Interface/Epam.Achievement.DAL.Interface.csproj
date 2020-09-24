@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuthDao.cs" />
     <Compile Include="IAwardDao.cs" />
     <Compile Include="IClientAwardDao.cs" />
     <Compile Include="IClientDao.cs" />
+    <Compile Include="IMyRoleDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

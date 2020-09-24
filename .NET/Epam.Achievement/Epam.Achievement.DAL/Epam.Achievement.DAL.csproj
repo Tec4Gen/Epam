@@ -42,14 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthDao.cs" />
     <Compile Include="AwardDao.cs" />
     <Compile Include="ClientAwardDao.cs" />
     <Compile Include="ClientDao.cs" />
+    <Compile Include="MyRoleDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Epam.Achievement.DAL.Interface\Epam.Achievement.DAL.Interface.csproj">
-      <Project>{35E8C44D-EDA8-4CBD-B7A5-A7A060E3E77A}</Project>
+      <Project>{35e8c44d-eda8-4cbd-b7a5-a7a060e3e77a}</Project>
       <Name>Epam.Achievement.DAL.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Epam.Achievement.Entities\Epam.Achievement.Entities.csproj">

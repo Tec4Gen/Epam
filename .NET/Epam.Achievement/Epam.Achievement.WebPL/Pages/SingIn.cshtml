@@ -1,0 +1,41 @@
+﻿@using Epam.Achievement.Entities;
+@using Epam.Achievement.Ioc;
+@using Epam.Achievement.BLL.Interface;
+@{
+    if (IsPost)
+    {
+        var login = Request["login"];
+        var password = Request["password"];
+
+        var checkuser = DependenciesResolver.AuthDao;
+        if (checkuser.CanLogin(login, password))
+        {
+            FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+            Response.Redirect("/");
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form action="~/Pages/SingIn.cshtml" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Logib</label>
+                <input name="login" type="text" class="form-control" id="exampleInputLogin" aria-describedby="loginHelp" placeholder="Enter login">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

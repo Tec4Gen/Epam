@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthLogic.cs" />
     <Compile Include="AwardLogic.cs" />
     <Compile Include="ClientAwardLogic.cs" />
     <Compile Include="ClientLogic.cs" />
+    <Compile Include="MyRoleLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,14 +7,7 @@
 @{
     int.TryParse(Request["Id"], out int id);
 
-    var clientAward = _clientAwardLogic.DeleteByIdAward(id);
-    var award = _clientAwardLogic.Delete(id);
+    var clientaward = _clientAwardLogic.Delete(id);
 
-    if (clientAward != null)
-    {
-        foreach (var item in clientAward)
-        {
-            <div>@item.Id @item.IdAchievement @item.IdClient</div>
-        }
-    }
+    <div>Relationship removed</div> 
 }

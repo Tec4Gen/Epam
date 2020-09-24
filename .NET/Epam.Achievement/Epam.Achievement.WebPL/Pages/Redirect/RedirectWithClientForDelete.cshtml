@@ -9,14 +9,9 @@
 @{
     int.TryParse(Request["ClientId"], out int id);
 
-    var clientAward = _clientAwardLogic.DeleteByIdClient(id);
     var client = _client.Delete(id);
 
-    if (clientAward != null)
-    {
-        foreach (var item in clientAward)
-        {
-            <div>@item.Id @item.IdAchievement @item.IdClient</div>
-        }
-    }
+    //Костыль, последствия поосле М М с файлами ...
+
+    <div>The client has been removed and all his rewards: /</div>
 }

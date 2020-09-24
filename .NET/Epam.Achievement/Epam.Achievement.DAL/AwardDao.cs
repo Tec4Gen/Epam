@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Epam.Achievement.DAL
 {
-    public class AwardDao: IAwardDao
+    public class AwardDao : IAwardDao
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["AchievementBase"].ConnectionString;
 
@@ -20,15 +20,15 @@ namespace Epam.Achievement.DAL
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "[dbo].[Sp_InsertAward]";
 
-                SqlParameter ParameterDirectionId = new SqlParameter 
+                SqlParameter ParameterId = new SqlParameter
                 {
                     DbType = DbType.Int32,
                     ParameterName = "@Id",
                     Value = award.Id,
                     Direction = ParameterDirection.Output
                 };
-                command.Parameters.Add(ParameterDirectionId);
-                
+                command.Parameters.Add(ParameterId);
+
                 SqlParameter ParameterTitle = new SqlParameter
                 {
                     DbType = DbType.String,
@@ -38,10 +38,10 @@ namespace Epam.Achievement.DAL
                 };
                 command.Parameters.Add(ParameterTitle);
 
-                SqlParameter ParameterImage = new SqlParameter 
+                SqlParameter ParameterImage = new SqlParameter
                 {
                     DbType = DbType.Binary,
-                    ParameterName = "@Iamage",
+                    ParameterName = "@Image",
                     Value = award.Image,
                     Direction = ParameterDirection.Input
                 };
@@ -51,9 +51,8 @@ namespace Epam.Achievement.DAL
 
                 command.ExecuteNonQuery();
 
-            
-                return (int)ParameterDirectionId.Value;
-                
+                return (int)ParameterId.Value;
+
             }
         }
 
@@ -79,9 +78,9 @@ namespace Epam.Achievement.DAL
 
                 var reader = command.ExecuteReader();
 
-                if (reader.Read()) 
+                if (reader.Read())
                 {
-                    return new Award 
+                    return new Award
                     {
                         Id = (int)reader["Id"],
                         Title = reader["Title"] as string,
@@ -111,7 +110,7 @@ namespace Epam.Achievement.DAL
 
                 while (reader.Read())
                 {
-                    awards.Add(new Award 
+                    awards.Add(new Award
                     {
                         Id = (int)reader["Id"],
                         Title = reader["Title"] as string,
@@ -125,7 +124,7 @@ namespace Epam.Achievement.DAL
 
         public Award GetById(int id)
         {
-            using (SqlConnection connection =  new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 var command = connection.CreateCommand();
 
@@ -145,7 +144,7 @@ namespace Epam.Achievement.DAL
 
                 var reader = command.ExecuteReader();
 
-                if (reader.Read()) 
+                if (reader.Read())
                 {
                     return new Award
                     {
@@ -179,8 +178,8 @@ namespace Epam.Achievement.DAL
                 SqlParameter ParameterTitle = new SqlParameter
                 {
                     DbType = DbType.String,
-                    ParameterName = "@title",
-                    Value = award.Id,
+                    ParameterName = "@Title",
+                    Value = award.Title,
                     Direction = ParameterDirection.Input
                 };
                 command.Parameters.Add(ParameterTitle);
@@ -200,7 +199,7 @@ namespace Epam.Achievement.DAL
 
                 if (reader.Read())
                 {
-                    return new Award 
+                    return new Award
                     {
                         Id = (int)reader["Id"],
                         Title = reader["Title"] as string,

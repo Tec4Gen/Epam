@@ -10,15 +10,7 @@
 {
     int.TryParse(Request["AwardId"], out int id);
 
-    var cleintAward = _clientAwardLogic.DeleteByIdAward(id);
     var award = _awardLogic.Delete(id);
-
-    if (cleintAward != null)
-    {
-        foreach (var item in cleintAward)
-        {
-            <div>@item.Id @item.IdAchievement @item.IdClient</div>
-        }
-    }
+    <div>Removed all links to this reward</div>
 
 }

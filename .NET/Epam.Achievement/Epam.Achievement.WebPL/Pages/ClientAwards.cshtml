@@ -58,9 +58,11 @@
         if (Int32.TryParse(Request["ClientId"], out int ClientId) &&
             Int32.TryParse(Request["AwardId"], out int AwardID))
         {
-            var IdRelationship = _clientAwardLogic.Add(ClientId, AwardID);
-
-            Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={IdRelationship}");
+            if (_clientLogic.GetById(ClientId) != null && _awardLogic.GetById(AwardID) != null)
+            {
+                var IdRelationship = _clientAwardLogic.Add(ClientId, AwardID);
+                Response.Redirect($"/Pages/ClientAwards.cshtml?IdRelationship={IdRelationship}");
+            }
         }
         else
         {
@@ -125,7 +127,7 @@
                         }
                         <td><a class="Edit Client btn" href="~/Pages/EditClientAwardViewClient.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Client</a></td>
                         <td><a class="Edit Award btn" href="~/Pages/EditClientAwardViewAward.cshtml?Id=@item.Id&IdClient=@item.IdClient&IdAchievement=@item.IdAchievement">Edit Award</a></td>
-                        <td><a class="Delete btn">Delete</a></td>
+                        <td><a class="Delete btn" href="~/Pages/Redirect/RedirectDeleteClientAward.cshtml?Id=@item.Id">Delete</a></td>
                     </tr>
                 }
             }

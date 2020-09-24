@@ -57,6 +57,10 @@
       <Project>{35E8C44D-EDA8-4CBD-B7A5-A7A060E3E77A}</Project>
       <Name>Epam.Achievement.DAL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Epam.Achievement.DAL\Epam.Achievement.DAL.csproj">
+      <Project>{37B8D331-B0BA-46A6-8A52-AE3DE6268DED}</Project>
+      <Name>Epam.Achievement.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

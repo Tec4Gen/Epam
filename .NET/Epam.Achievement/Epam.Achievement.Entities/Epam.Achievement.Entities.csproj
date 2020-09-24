@@ -44,6 +44,7 @@
     <Compile Include="Award.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientAward.cs" />
+    <Compile Include="MyRoleDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

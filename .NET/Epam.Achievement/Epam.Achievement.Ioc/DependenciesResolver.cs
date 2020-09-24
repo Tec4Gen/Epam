@@ -1,7 +1,8 @@
 ﻿using Epam.Achievement.BLL;
 using Epam.Achievement.BLL.Interface;
+using Epam.Achievement.DAL;
 using Epam.Achievement.DAL.Interface;
-using Epam.Achievement.FakeDAL;
+//using Epam.Achievement.FakeDAL;
 
 namespace Epam.Achievement.Ioc
 {
@@ -16,11 +17,21 @@ namespace Epam.Achievement.Ioc
         private static IClientAwardDao _clientAwardDao;
         private static IClientAwardLogic _clientAwardLogic;
 
+        private static IMyRoleDao _myRoleDao;
+        private static IMyRoleLogic _myRoleLogic;
+
+        private static IAuthDao _authDao;
+        private static IAuthLogic _authLogic;
+
         public static IClientLogic ClientLogic => _clientLogic ?? new ClientLogic(_clientDao = new ClientDao());
 
         public static IAwardLogic AwardLogic => _awardLogic ?? new AwardLogic(_awardDao = new AwardDao());
 
         public static IClientAwardLogic ClientAwaradLogic => _clientAwardLogic ?? new ClientAwardLogic(_clientAwardDao = new ClientAwardDao());
+
+        public static IMyRoleLogic MyRoleLogic => _myRoleLogic ?? new MyRoleLogic(_myRoleDao = new MyRoleDao());
+
+        public static IAuthLogic AuthDao => _authLogic ?? new AuthLogic(_authDao = new AuthDao());
 
     }
 }
